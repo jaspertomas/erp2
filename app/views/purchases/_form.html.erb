@@ -49,15 +49,15 @@
   </div>
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.text_field :date, :class => 'datepicker'  %>	
   </div>
   <div class="field">
     <%= f.label :datereceived %><br />
-    <%= f.date_select :datereceived %>
+    <%= f.text_field :datereceived, :class => 'datepicker'  %>	
   </div>
   <div class="field">
     <%= f.label :duedate %><br />
-    <%= f.date_select :duedate %>
+    <%= f.text_field :duedate, :class => 'datepicker'  %>	
   </div>
   <div class="field">
     <%= f.label :vendor_invoice %><br />
@@ -97,7 +97,7 @@
   </div>
   <div class="field">
     <%= f.label :chequedate %><br />
-    <%= f.date_select :chequedate %>
+    <%= f.text_field :chequedate, :class => 'datepicker'  %>	
   </div>
   <div class="field">
     <%= f.label :balance %><br />
@@ -111,3 +111,10 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+ <script>
+ $(function() {
+  $('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+});
+ </script>

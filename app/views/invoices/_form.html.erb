@@ -12,8 +12,16 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :date %><br />
+    <%= f.text_field :date, :class => 'datepicker'  %>	
+  </div>
+  <div class="field">
+    <%= f.label :template_id %><br />
+    <%= f.collection_select :template_id, InvoiceTemplate.all, :id, :name, :selected => '1' %>
+  </div>
+  <div class="field">
     <%= f.label :customer_id %><br />
-    <%= f.number_field :customer_id %>
+    <%= f.collection_select :customer_id, Customer.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :customer_name %><br />
@@ -41,19 +49,15 @@
   </div>
   <div class="field">
     <%= f.label :chequedate %><br />
-    <%= f.date_select :chequedate %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.text_field :chequedate, :class => 'datepicker'  %>	
   </div>
   <div class="field">
     <%= f.label :duedate %><br />
-    <%= f.date_select :duedate %>
+    <%= f.text_field :duedate, :class => 'datepicker'  %>	
   </div>
   <div class="field">
     <%= f.label :datepaid %><br />
-    <%= f.date_select :datepaid %>
+    <%= f.text_field :datepaid, :class => 'datepicker'  %>	
   </div>
   <div class="field">
     <%= f.label :terms_id %><br />
@@ -66,10 +70,6 @@
   <div class="field">
     <%= f.label :technician_id %><br />
     <%= f.number_field :technician_id %>
-  </div>
-  <div class="field">
-    <%= f.label :template_id %><br />
-    <%= f.number_field :template_id %>
   </div>
   <div class="field">
     <%= f.label :cash %><br />
@@ -119,3 +119,9 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+ <script>
+ $(function() {
+  $('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+});
+ </script>
