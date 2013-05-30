@@ -14,13 +14,7 @@ describe "vendors/show" do
       :phone2 => "Phone2",
       :faxnum => "Faxnum",
       :email => "Email",
-      :ta => "Ta",
-      :Rails => "Rails",
-      :g => "G",
-      :scaffold => "Scaffold",
-      :Vendors => "Vendors",
-      :name => "",
-      :name => "Name"
+      :taxid => "Taxid"
     ))
   end
 
@@ -38,12 +32,6 @@ describe "vendors/show" do
     rendered.should match(/Phone2/)
     rendered.should match(/Faxnum/)
     rendered.should match(/Email/)
-    rendered.should match(/Ta/)
-    rendered.should match(/Rails/)
-    rendered.should match(/G/)
-    rendered.should match(/Scaffold/)
-    rendered.should match(/Vendors/)
-    rendered.should match(//)
-    rendered.should match(/Name/)
+    rendered.should match(/Taxid/)
   end
 end

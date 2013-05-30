@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Datatype</th>
     <th>Value</th>
     <th></th>
     <th></th>
@@ -13,7 +12,6 @@
 <% @settings.each do |setting| %>
   <tr>
     <td><%= setting.name %></td>
-    <td><%= setting.datatype %></td>
     <td><%= setting.value %></td>
     <td><%= link_to 'Show', setting %></td>
     <td><%= link_to 'Edit', edit_setting_path(setting) %></td>

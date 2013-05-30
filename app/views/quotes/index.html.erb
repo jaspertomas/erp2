@@ -1,0 +1,43 @@
+<h1>Listing quotes</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Vendor</th>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Discrate</th>
+    <th>Discamt</th>
+    <th>Ref class</th>
+    <th>Ref</th>
+    <th>Total</th>
+    <th>Mine</th>
+    <th>Is cancelled</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quotes.each do |quote| %>
+  <tr>
+    <td><%= quote.date %></td>
+    <td><%= quote.vendor_id %></td>
+    <td><%= quote.product_id %></td>
+    <td><%= quote.price %></td>
+    <td><%= quote.discrate %></td>
+    <td><%= quote.discamt %></td>
+    <td><%= quote.ref_class %></td>
+    <td><%= quote.ref_id %></td>
+    <td><%= quote.total %></td>
+    <td><%= quote.mine %></td>
+    <td><%= quote.is_cancelled %></td>
+    <td><%= link_to 'Show', quote %></td>
+    <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+    <td><%= link_to 'Destroy', quote, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Quote', new_quote_path %>

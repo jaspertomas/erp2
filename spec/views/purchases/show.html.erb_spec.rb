@@ -11,16 +11,9 @@ describe "purchases/show" do
       :vendor_name => "Vendor Name",
       :terms_id => 2,
       :employee_id => 3,
-      :template_ => "Template ",
-      :Rails => "Rails",
-      :g => "G",
-      :scaffold => "Scaffold",
-      :ve => "Ve",
-      :Rails => "Rails",
-      :g => "G",
-      :scaffold => "Scaffold",
-      :Purchases => "Purchases",
-      :poing => "Poing",
+      :template_id => 4,
+      :vendor_invoice => "Vendor Invoice",
+      :discrate => "Discrate",
       :discamt => "9.99",
       :status => "Status",
       :type => "Type",
@@ -44,16 +37,9 @@ describe "purchases/show" do
     rendered.should match(/Vendor Name/)
     rendered.should match(/2/)
     rendered.should match(/3/)
-    rendered.should match(/Template /)
-    rendered.should match(/Rails/)
-    rendered.should match(/G/)
-    rendered.should match(/Scaffold/)
-    rendered.should match(/Ve/)
-    rendered.should match(/Rails/)
-    rendered.should match(/G/)
-    rendered.should match(/Scaffold/)
-    rendered.should match(/Purchases/)
-    rendered.should match(/Poing/)
+    rendered.should match(/4/)
+    rendered.should match(/Vendor Invoice/)
+    rendered.should match(/Discrate/)
     rendered.should match(/9.99/)
     rendered.should match(/Status/)
     rendered.should match(/Type/)

@@ -1,3 +1,3 @@
 class Purchase < ActiveRecord::Base
-  attr_accessible :Purchases, :Rails, :Rails, :balance, :cash, :cheque, :chequedata, :chequedate, :chequeno, :credit, :datereceived, :discamt, :duedate, :employee_id, :g, :g, :invno, :poing, :pono, :scaffold, :scaffold, :status, :tax, :template_, :terms_id, :total, :type, :ve, :vendor_id, :vendor_name
+  attr_accessible :balance, :cash, :cheque, :chequedata, :chequedate, :chequeno, :credit, :date, :datereceived, :discamt, :discrate, :duedate, :employee_id, :invno, :pono, :status, :tax, :template_id, :terms_id, :total, :type, :vendor_id, :vendor_invoice, :vendor_name
 end

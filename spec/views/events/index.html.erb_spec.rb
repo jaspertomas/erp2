@@ -11,13 +11,9 @@ describe "events/index" do
         :child_class => "Child Class",
         :children_id => "Children",
         :amount => "9.99",
-        :d => "D",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Events => "Events",
-        :type => "Type",
-        :ping => "Ping",
+        :detail1 => "Detail1",
+        :detail2 => "Detail2",
+        :detail3 => "Detail3",
         :is_cancelled => false
       ),
       stub_model(Event,
@@ -28,13 +24,9 @@ describe "events/index" do
         :child_class => "Child Class",
         :children_id => "Children",
         :amount => "9.99",
-        :d => "D",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Events => "Events",
-        :type => "Type",
-        :ping => "Ping",
+        :detail1 => "Detail1",
+        :detail2 => "Detail2",
+        :detail3 => "Detail3",
         :is_cancelled => false
       )
     ])
@@ -50,13 +42,9 @@ describe "events/index" do
     assert_select "tr>td", :text => "Child Class".to_s, :count => 2
     assert_select "tr>td", :text => "Children".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
-    assert_select "tr>td", :text => "D".to_s, :count => 2
-    assert_select "tr>td", :text => "Rails".to_s, :count => 2
-    assert_select "tr>td", :text => "G".to_s, :count => 2
-    assert_select "tr>td", :text => "Scaffold".to_s, :count => 2
-    assert_select "tr>td", :text => "Events".to_s, :count => 2
-    assert_select "tr>td", :text => "Type".to_s, :count => 2
-    assert_select "tr>td", :text => "Ping".to_s, :count => 2
+    assert_select "tr>td", :text => "Detail1".to_s, :count => 2
+    assert_select "tr>td", :text => "Detail2".to_s, :count => 2
+    assert_select "tr>td", :text => "Detail3".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
   end
 end

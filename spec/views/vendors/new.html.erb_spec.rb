@@ -14,13 +14,7 @@ describe "vendors/new" do
       :phone2 => "MyString",
       :faxnum => "MyString",
       :email => "MyString",
-      :ta => "MyString",
-      :Rails => "MyString",
-      :g => "MyString",
-      :scaffold => "MyString",
-      :Vendors => "MyString",
-      :name => "",
-      :name => "MyString"
+      :taxid => "MyString"
     ).as_new_record)
   end
 
@@ -40,13 +34,7 @@ describe "vendors/new" do
       assert_select "input#vendor_phone2", :name => "vendor[phone2]"
       assert_select "input#vendor_faxnum", :name => "vendor[faxnum]"
       assert_select "input#vendor_email", :name => "vendor[email]"
-      assert_select "input#vendor_ta", :name => "vendor[ta]"
-      assert_select "input#vendor_Rails", :name => "vendor[Rails]"
-      assert_select "input#vendor_g", :name => "vendor[g]"
-      assert_select "input#vendor_scaffold", :name => "vendor[scaffold]"
-      assert_select "input#vendor_Vendors", :name => "vendor[Vendors]"
-      assert_select "input#vendor_name", :name => "vendor[name]"
-      assert_select "input#vendor_name", :name => "vendor[name]"
+      assert_select "input#vendor_taxid", :name => "vendor[taxid]"
     end
   end
 end

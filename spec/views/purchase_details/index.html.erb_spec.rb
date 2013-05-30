@@ -8,16 +8,12 @@ describe "purchase_details/index" do
         :description => "Description",
         :qty => "9.99",
         :price => "9.99",
-        :total => "",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :PurchaseDetails => "Purchase Details",
-        :purccode => "",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Piscamt => "9.99",
+        :total => "9.99",
+        :tax => "9.99",
+        :product_id => 2,
+        :barcode => "Barcode",
+        :discrate => "Discrate",
+        :discamt => "9.99",
         :is_cancelled => false
       ),
       stub_model(PurchaseDetail,
@@ -25,16 +21,12 @@ describe "purchase_details/index" do
         :description => "Description",
         :qty => "9.99",
         :price => "9.99",
-        :total => "",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :PurchaseDetails => "Purchase Details",
-        :purccode => "",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Piscamt => "9.99",
+        :total => "9.99",
+        :tax => "9.99",
+        :product_id => 2,
+        :barcode => "Barcode",
+        :discrate => "Discrate",
+        :discamt => "9.99",
         :is_cancelled => false
       )
     ])
@@ -47,15 +39,11 @@ describe "purchase_details/index" do
     assert_select "tr>td", :text => "Description".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
-    assert_select "tr>td", :text => "Rails".to_s, :count => 2
-    assert_select "tr>td", :text => "G".to_s, :count => 2
-    assert_select "tr>td", :text => "Scaffold".to_s, :count => 2
-    assert_select "tr>td", :text => "Purchase Details".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
-    assert_select "tr>td", :text => "Rails".to_s, :count => 2
-    assert_select "tr>td", :text => "G".to_s, :count => 2
-    assert_select "tr>td", :text => "Scaffold".to_s, :count => 2
+    assert_select "tr>td", :text => "9.99".to_s, :count => 2
+    assert_select "tr>td", :text => "9.99".to_s, :count => 2
+    assert_select "tr>td", :text => 2.to_s, :count => 2
+    assert_select "tr>td", :text => "Barcode".to_s, :count => 2
+    assert_select "tr>td", :text => "Discrate".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
   end

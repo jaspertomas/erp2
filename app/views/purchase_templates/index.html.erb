@@ -1,0 +1,23 @@
+<h1>Listing purchase_templates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchase_templates.each do |purchase_template| %>
+  <tr>
+    <td><%= purchase_template.name %></td>
+    <td><%= link_to 'Show', purchase_template %></td>
+    <td><%= link_to 'Edit', edit_purchase_template_path(purchase_template) %></td>
+    <td><%= link_to 'Destroy', purchase_template, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase template', new_purchase_template_path %>

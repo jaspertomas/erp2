@@ -3,10 +3,8 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Rails</th>
-    <th>G</th>
-    <th>Scaffold</th>
-    <th>Produttype</th>
+    <th>Brand</th>
+    <th>Producttype</th>
     <th>Qty</th>
     <th>Category1</th>
     <th>Category2</th>
@@ -30,10 +28,8 @@
 <% @products.each do |product| %>
   <tr>
     <td><%= product.name %></td>
-    <td><%= product.Rails %></td>
-    <td><%= product.g %></td>
-    <td><%= product.scaffold %></td>
-    <td><%= product.Produttype_id %></td>
+    <td><%= product.brand_id %></td>
+    <td><%= product.producttype_id %></td>
     <td><%= product.qty %></td>
     <td><%= product.category1 %></td>
     <td><%= product.category2 %></td>

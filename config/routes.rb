@@ -1,22 +1,32 @@
-Holyfire::Application.routes.draw do  post "/participants/finalize"
+Erp2::Application.routes.draw do  post "/participants/finalize"
 
+  resources :invoices
+  resources :stocks
+  resources :customers
+  resources :accounts
+  resources :account_entries
+  resources :account_categories
+  resources :account_types
+  resources :brands
+  resources :employees
+  resources :invoice_details
+  resources :invoice_templates
+  resources :notes
+  resources :pricelists
+  resources :products
+  resources :product_categories
+  resources :product_types
+  resources :purchase_details
+  resources :purchase_templates
+  resources :quotes
   resources :settings
-  post "/blessings/current"
-  post "/blessings/set"
-  post "/blessings/addbatch"
-  post "/blessings/massdeleteparticipant"
-
-
-  resources :batches
-    #, :collection => { :massaddparticipant => :put}
-  post "/batches/addparticipant"
-  post "/batches/removeparticipant"
-  post "/batches/massaddparticipant"
-  post "/batches/massprocessparticipant"
-#  post "/batches/massfinalizeparticipant"
-  post "/batches/finalizeparticipant"
-  post "/batches/error"
-#  post "/batches/moveparticipant"
+  resources :stock_entries
+  resources :subsidiaries
+  resources :terms
+  resources :vendors
+  resources :warehouses
+  resources :events
+  resources :purchases
 
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup', to: 'users#new'
@@ -41,7 +51,7 @@ Holyfire::Application.routes.draw do  post "/participants/finalize"
 
   get "static_pages/initdb"
   
-  root :to => 'blessings#current'  
+  root :to => 'static_pages#index'  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

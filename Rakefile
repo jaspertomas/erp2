@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Holyfire::Application.load_tasks
+Erp2::Application.load_tasks

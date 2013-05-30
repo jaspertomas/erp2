@@ -7,16 +7,12 @@ describe "purchase_details/new" do
       :description => "MyString",
       :qty => "9.99",
       :price => "9.99",
-      :total => "",
-      :Rails => "MyString",
-      :g => "MyString",
-      :scaffold => "MyString",
-      :PurchaseDetails => "MyString",
-      :purccode => "",
-      :Rails => "MyString",
-      :g => "MyString",
-      :scaffold => "MyString",
-      :Piscamt => "9.99",
+      :total => "9.99",
+      :tax => "9.99",
+      :product_id => 1,
+      :barcode => "MyString",
+      :discrate => "MyString",
+      :discamt => "9.99",
       :is_cancelled => false
     ).as_new_record)
   end
@@ -31,15 +27,11 @@ describe "purchase_details/new" do
       assert_select "input#purchase_detail_qty", :name => "purchase_detail[qty]"
       assert_select "input#purchase_detail_price", :name => "purchase_detail[price]"
       assert_select "input#purchase_detail_total", :name => "purchase_detail[total]"
-      assert_select "input#purchase_detail_Rails", :name => "purchase_detail[Rails]"
-      assert_select "input#purchase_detail_g", :name => "purchase_detail[g]"
-      assert_select "input#purchase_detail_scaffold", :name => "purchase_detail[scaffold]"
-      assert_select "input#purchase_detail_PurchaseDetails", :name => "purchase_detail[PurchaseDetails]"
-      assert_select "input#purchase_detail_purccode", :name => "purchase_detail[purccode]"
-      assert_select "input#purchase_detail_Rails", :name => "purchase_detail[Rails]"
-      assert_select "input#purchase_detail_g", :name => "purchase_detail[g]"
-      assert_select "input#purchase_detail_scaffold", :name => "purchase_detail[scaffold]"
-      assert_select "input#purchase_detail_Piscamt", :name => "purchase_detail[Piscamt]"
+      assert_select "input#purchase_detail_tax", :name => "purchase_detail[tax]"
+      assert_select "input#purchase_detail_product_id", :name => "purchase_detail[product_id]"
+      assert_select "input#purchase_detail_barcode", :name => "purchase_detail[barcode]"
+      assert_select "input#purchase_detail_discrate", :name => "purchase_detail[discrate]"
+      assert_select "input#purchase_detail_discamt", :name => "purchase_detail[discamt]"
       assert_select "input#purchase_detail_is_cancelled", :name => "purchase_detail[is_cancelled]"
     end
   end

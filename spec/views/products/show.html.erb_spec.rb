@@ -3,11 +3,9 @@ require 'spec_helper'
 describe "products/show" do
   before(:each) do
     @product = assign(:product, stub_model(Product,
-      :name => "",
-      :Rails => "Rails",
-      :g => "G",
-      :scaffold => "Scaffold",
-      :Produttype_id => 1,
+      :name => "Name",
+      :brand_id => 1,
+      :producttype_id => 2,
       :qty => "9.99",
       :category1 => "Category1",
       :category2 => "Category2",
@@ -29,11 +27,9 @@ describe "products/show" do
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(//)
-    rendered.should match(/Rails/)
-    rendered.should match(/G/)
-    rendered.should match(/Scaffold/)
+    rendered.should match(/Name/)
     rendered.should match(/1/)
+    rendered.should match(/2/)
     rendered.should match(/9.99/)
     rendered.should match(/Category1/)
     rendered.should match(/Category2/)

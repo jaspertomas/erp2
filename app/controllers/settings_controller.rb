@@ -2,8 +2,6 @@ class SettingsController < ApplicationController
   # GET /settings
   # GET /settings.json
   def index
-    #admin only
-    return redirect_to static_pages_adminonlyerror_path if !current_user.is_admin
     @settings = Setting.all
 
     respond_to do |format|
@@ -15,8 +13,6 @@ class SettingsController < ApplicationController
   # GET /settings/1
   # GET /settings/1.json
   def show
-    #admin only
-    return redirect_to static_pages_adminonlyerror_path if !current_user.is_admin
     @setting = Setting.find(params[:id])
 
     respond_to do |format|
@@ -28,8 +24,6 @@ class SettingsController < ApplicationController
   # GET /settings/new
   # GET /settings/new.json
   def new
-    #admin only
-    return redirect_to static_pages_adminonlyerror_path if !current_user.is_admin
     @setting = Setting.new
 
     respond_to do |format|
@@ -40,16 +34,12 @@ class SettingsController < ApplicationController
 
   # GET /settings/1/edit
   def edit
-    #admin only
-    return redirect_to static_pages_adminonlyerror_path if !current_user.is_admin
     @setting = Setting.find(params[:id])
   end
 
   # POST /settings
   # POST /settings.json
   def create
-    #admin only
-    return redirect_to static_pages_adminonlyerror_path if !current_user.is_admin
     @setting = Setting.new(params[:setting])
 
     respond_to do |format|
@@ -66,8 +56,6 @@ class SettingsController < ApplicationController
   # PUT /settings/1
   # PUT /settings/1.json
   def update
-    #admin only
-    return redirect_to static_pages_adminonlyerror_path if !current_user.is_admin
     @setting = Setting.find(params[:id])
 
     respond_to do |format|
@@ -84,8 +72,6 @@ class SettingsController < ApplicationController
   # DELETE /settings/1
   # DELETE /settings/1.json
   def destroy
-    #admin only
-    return redirect_to static_pages_adminonlyerror_path if !current_user.is_admin
     @setting = Setting.find(params[:id])
     @setting.destroy
 

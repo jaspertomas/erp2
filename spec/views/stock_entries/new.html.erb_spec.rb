@@ -8,12 +8,10 @@ describe "stock_entries/new" do
       :stock_id => 1,
       :ref_class => "MyString",
       :ref_id => 1,
-      :is_cancelled => "",
-      :Rails => "MyString",
-      :g => "MyString",
-      :scaffold => "MyString",
-      :StockEntry => "MyString",
-      :qn => "MyString"
+      :is_cancelled => false,
+      :priority => 1,
+      :type => "",
+      :description => "MyString"
     ).as_new_record)
   end
 
@@ -28,11 +26,9 @@ describe "stock_entries/new" do
       assert_select "input#stock_entry_ref_class", :name => "stock_entry[ref_class]"
       assert_select "input#stock_entry_ref_id", :name => "stock_entry[ref_id]"
       assert_select "input#stock_entry_is_cancelled", :name => "stock_entry[is_cancelled]"
-      assert_select "input#stock_entry_Rails", :name => "stock_entry[Rails]"
-      assert_select "input#stock_entry_g", :name => "stock_entry[g]"
-      assert_select "input#stock_entry_scaffold", :name => "stock_entry[scaffold]"
-      assert_select "input#stock_entry_StockEntry", :name => "stock_entry[StockEntry]"
-      assert_select "input#stock_entry_qn", :name => "stock_entry[qn]"
+      assert_select "input#stock_entry_priority", :name => "stock_entry[priority]"
+      assert_select "input#stock_entry_type", :name => "stock_entry[type]"
+      assert_select "input#stock_entry_description", :name => "stock_entry[description]"
     end
   end
 end

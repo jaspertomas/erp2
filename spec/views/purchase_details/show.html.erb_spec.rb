@@ -7,16 +7,12 @@ describe "purchase_details/show" do
       :description => "Description",
       :qty => "9.99",
       :price => "9.99",
-      :total => "",
-      :Rails => "Rails",
-      :g => "G",
-      :scaffold => "Scaffold",
-      :PurchaseDetails => "Purchase Details",
-      :purccode => "",
-      :Rails => "Rails",
-      :g => "G",
-      :scaffold => "Scaffold",
-      :Piscamt => "9.99",
+      :total => "9.99",
+      :tax => "9.99",
+      :product_id => 2,
+      :barcode => "Barcode",
+      :discrate => "Discrate",
+      :discamt => "9.99",
       :is_cancelled => false
     ))
   end
@@ -28,15 +24,11 @@ describe "purchase_details/show" do
     rendered.should match(/Description/)
     rendered.should match(/9.99/)
     rendered.should match(/9.99/)
-    rendered.should match(//)
-    rendered.should match(/Rails/)
-    rendered.should match(/G/)
-    rendered.should match(/Scaffold/)
-    rendered.should match(/Purchase Details/)
-    rendered.should match(//)
-    rendered.should match(/Rails/)
-    rendered.should match(/G/)
-    rendered.should match(/Scaffold/)
+    rendered.should match(/9.99/)
+    rendered.should match(/9.99/)
+    rendered.should match(/2/)
+    rendered.should match(/Barcode/)
+    rendered.should match(/Discrate/)
     rendered.should match(/9.99/)
     rendered.should match(/false/)
   end

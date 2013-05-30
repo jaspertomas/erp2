@@ -12,16 +12,9 @@ describe "purchases/index" do
         :vendor_name => "Vendor Name",
         :terms_id => 2,
         :employee_id => 3,
-        :template_ => "Template ",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :ve => "Ve",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Purchases => "Purchases",
-        :poing => "Poing",
+        :template_id => 4,
+        :vendor_invoice => "Vendor Invoice",
+        :discrate => "Discrate",
         :discamt => "9.99",
         :status => "Status",
         :type => "Type",
@@ -41,16 +34,9 @@ describe "purchases/index" do
         :vendor_name => "Vendor Name",
         :terms_id => 2,
         :employee_id => 3,
-        :template_ => "Template ",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :ve => "Ve",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Purchases => "Purchases",
-        :poing => "Poing",
+        :template_id => 4,
+        :vendor_invoice => "Vendor Invoice",
+        :discrate => "Discrate",
         :discamt => "9.99",
         :status => "Status",
         :type => "Type",
@@ -75,16 +61,9 @@ describe "purchases/index" do
     assert_select "tr>td", :text => "Vendor Name".to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
     assert_select "tr>td", :text => 3.to_s, :count => 2
-    assert_select "tr>td", :text => "Template ".to_s, :count => 2
-    assert_select "tr>td", :text => "Rails".to_s, :count => 2
-    assert_select "tr>td", :text => "G".to_s, :count => 2
-    assert_select "tr>td", :text => "Scaffold".to_s, :count => 2
-    assert_select "tr>td", :text => "Ve".to_s, :count => 2
-    assert_select "tr>td", :text => "Rails".to_s, :count => 2
-    assert_select "tr>td", :text => "G".to_s, :count => 2
-    assert_select "tr>td", :text => "Scaffold".to_s, :count => 2
-    assert_select "tr>td", :text => "Purchases".to_s, :count => 2
-    assert_select "tr>td", :text => "Poing".to_s, :count => 2
+    assert_select "tr>td", :text => 4.to_s, :count => 2
+    assert_select "tr>td", :text => "Vendor Invoice".to_s, :count => 2
+    assert_select "tr>td", :text => "Discrate".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
     assert_select "tr>td", :text => "Status".to_s, :count => 2
     assert_select "tr>td", :text => "Type".to_s, :count => 2

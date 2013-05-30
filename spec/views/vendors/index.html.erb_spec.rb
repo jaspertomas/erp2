@@ -15,13 +15,7 @@ describe "vendors/index" do
         :phone2 => "Phone2",
         :faxnum => "Faxnum",
         :email => "Email",
-        :ta => "Ta",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Vendors => "Vendors",
-        :name => "",
-        :name => "Name"
+        :taxid => "Taxid"
       ),
       stub_model(Vendor,
         :name => "Name",
@@ -35,13 +29,7 @@ describe "vendors/index" do
         :phone2 => "Phone2",
         :faxnum => "Faxnum",
         :email => "Email",
-        :ta => "Ta",
-        :Rails => "Rails",
-        :g => "G",
-        :scaffold => "Scaffold",
-        :Vendors => "Vendors",
-        :name => "",
-        :name => "Name"
+        :taxid => "Taxid"
       )
     ])
   end
@@ -60,12 +48,6 @@ describe "vendors/index" do
     assert_select "tr>td", :text => "Phone2".to_s, :count => 2
     assert_select "tr>td", :text => "Faxnum".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "Ta".to_s, :count => 2
-    assert_select "tr>td", :text => "Rails".to_s, :count => 2
-    assert_select "tr>td", :text => "G".to_s, :count => 2
-    assert_select "tr>td", :text => "Scaffold".to_s, :count => 2
-    assert_select "tr>td", :text => "Vendors".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select "tr>td", :text => "Taxid".to_s, :count => 2
   end
 end

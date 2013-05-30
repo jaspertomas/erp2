@@ -10,13 +10,9 @@ describe "events/show" do
       :child_class => "Child Class",
       :children_id => "Children",
       :amount => "9.99",
-      :d => "D",
-      :Rails => "Rails",
-      :g => "G",
-      :scaffold => "Scaffold",
-      :Events => "Events",
-      :type => "Type",
-      :ping => "Ping",
+      :detail1 => "Detail1",
+      :detail2 => "Detail2",
+      :detail3 => "Detail3",
       :is_cancelled => false
     ))
   end
@@ -31,13 +27,9 @@ describe "events/show" do
     rendered.should match(/Child Class/)
     rendered.should match(/Children/)
     rendered.should match(/9.99/)
-    rendered.should match(/D/)
-    rendered.should match(/Rails/)
-    rendered.should match(/G/)
-    rendered.should match(/Scaffold/)
-    rendered.should match(/Events/)
-    rendered.should match(/Type/)
-    rendered.should match(/Ping/)
+    rendered.should match(/Detail1/)
+    rendered.should match(/Detail2/)
+    rendered.should match(/Detail3/)
     rendered.should match(/false/)
   end
 end

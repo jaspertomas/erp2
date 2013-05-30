@@ -1,0 +1,81 @@
+<%= form_for(@product_type) do |f| %>
+  <% if @product_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_type.errors.count, "error") %> prohibited this product_type from being saved:</h2>
+
+      <ul>
+      <% @product_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_id %><br />
+    <%= f.number_field :parent_id %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.number_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :category1 %><br />
+    <%= f.text_field :category1 %>
+  </div>
+  <div class="field">
+    <%= f.label :category2 %><br />
+    <%= f.text_field :category2 %>
+  </div>
+  <div class="field">
+    <%= f.label :category3 %><br />
+    <%= f.text_field :category3 %>
+  </div>
+  <div class="field">
+    <%= f.label :category4 %><br />
+    <%= f.text_field :category4 %>
+  </div>
+  <div class="field">
+    <%= f.label :category5 %><br />
+    <%= f.text_field :category5 %>
+  </div>
+  <div class="field">
+    <%= f.label :category6 %><br />
+    <%= f.text_field :category6 %>
+  </div>
+  <div class="field">
+    <%= f.label :category7 %><br />
+    <%= f.text_field :category7 %>
+  </div>
+  <div class="field">
+    <%= f.label :category8 %><br />
+    <%= f.text_field :category8 %>
+  </div>
+  <div class="field">
+    <%= f.label :category9 %><br />
+    <%= f.text_field :category9 %>
+  </div>
+  <div class="field">
+    <%= f.label :category10 %><br />
+    <%= f.text_field :category10 %>
+  </div>
+  <div class="field">
+    <%= f.label :path_ids %><br />
+    <%= f.text_field :path_ids %>
+  </div>
+  <div class="field">
+    <%= f.label :path %><br />
+    <%= f.text_field :path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

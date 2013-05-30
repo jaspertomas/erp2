@@ -3,11 +3,8 @@
 <table>
   <tr>
     <th>Invoice</th>
-    <th>Rails</th>
-    <th>G</th>
-    <th>Scaffold</th>
-    <th>Invoicedetails</th>
-    <th>Invoice</th>
+    <th>Product</th>
+    <th>Barcode</th>
     <th>Description</th>
     <th>Qty</th>
     <th>Discamt</th>
@@ -20,11 +17,8 @@
 <% @invoice_details.each do |invoice_detail| %>
   <tr>
     <td><%= invoice_detail.invoice_id %></td>
-    <td><%= invoice_detail.Rails %></td>
-    <td><%= invoice_detail.g %></td>
-    <td><%= invoice_detail.scaffold %></td>
-    <td><%= invoice_detail.InvoiceDetails %></td>
-    <td><%= invoice_detail.invoice %></td>
+    <td><%= invoice_detail.product_id %></td>
+    <td><%= invoice_detail.barcode %></td>
     <td><%= invoice_detail.description %></td>
     <td><%= invoice_detail.qty %></td>
     <td><%= invoice_detail.discamt %></td>

@@ -1,3 +1,3 @@
 class InvoiceDetail < ActiveRecord::Base
-  attr_accessible :InvoiceDetails, :Rails, :description, :discamt, :g, :invoice, :invoice_id, :is_cancelled, :qty, :scaffold
+  attr_accessible :barcode, :description, :discamt, :invoice_id, :is_cancelled, :product_id, :qty
 end

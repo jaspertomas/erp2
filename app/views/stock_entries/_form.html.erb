@@ -37,31 +37,19 @@
   </div>
   <div class="field">
     <%= f.label :is_cancelled %><br />
-    <%= f.text_field :is_cancelled %>
+    <%= f.check_box :is_cancelled %>
   </div>
   <div class="field">
-    <%= f.label :Rails %><br />
-    <%= f.text_field :Rails %>
+    <%= f.label :priority %><br />
+    <%= f.number_field :priority %>
   </div>
   <div class="field">
-    <%= f.label :g %><br />
-    <%= f.text_field :g %>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
   </div>
   <div class="field">
-    <%= f.label :scaffold %><br />
-    <%= f.text_field :scaffold %>
-  </div>
-  <div class="field">
-    <%= f.label :StockEntry %><br />
-    <%= f.text_field :StockEntry %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :qn %><br />
-    <%= f.text_field :qn %>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
   </div>
   <div class="actions">
     <%= f.submit %>

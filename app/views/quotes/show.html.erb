@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @quote.date %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @quote.vendor_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @quote.product_id %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @quote.price %>
+</p>
+
+<p>
+  <b>Discrate:</b>
+  <%= @quote.discrate %>
+</p>
+
+<p>
+  <b>Discamt:</b>
+  <%= @quote.discamt %>
+</p>
+
+<p>
+  <b>Ref class:</b>
+  <%= @quote.ref_class %>
+</p>
+
+<p>
+  <b>Ref:</b>
+  <%= @quote.ref_id %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @quote.total %>
+</p>
+
+<p>
+  <b>Mine:</b>
+  <%= @quote.mine %>
+</p>
+
+<p>
+  <b>Is cancelled:</b>
+  <%= @quote.is_cancelled %>
+</p>
+
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>
