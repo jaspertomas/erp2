@@ -1,0 +1,121 @@
+<%= form_for(@invoice) do |f| %>
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+      <% @invoice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_id %><br />
+    <%= f.number_field :customer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_name %><br />
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :invno %><br />
+    <%= f.text_field :invno %>
+  </div>
+  <div class="field">
+    <%= f.label :ponumber %><br />
+    <%= f.text_field :ponumber %>
+  </div>
+  <div class="field">
+    <%= f.label :payonly %><br />
+    <%= f.text_field :payonly %>
+  </div>
+  <div class="field">
+    <%= f.label :total %><br />
+    <%= f.text_field :total %>
+  </div>
+  <div class="field">
+    <%= f.label :cheque %><br />
+    <%= f.text_field :cheque %>
+  </div>
+  <div class="field">
+    <%= f.label :chequedate %><br />
+    <%= f.date_select :chequedate %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :duedate %><br />
+    <%= f.date_select :duedate %>
+  </div>
+  <div class="field">
+    <%= f.label :datepaid %><br />
+    <%= f.date_select :datepaid %>
+  </div>
+  <div class="field">
+    <%= f.label :terms_id %><br />
+    <%= f.number_field :terms_id %>
+  </div>
+  <div class="field">
+    <%= f.label :salesman_id %><br />
+    <%= f.number_field :salesman_id %>
+  </div>
+  <div class="field">
+    <%= f.label :technician_id %><br />
+    <%= f.number_field :technician_id %>
+  </div>
+  <div class="field">
+    <%= f.label :template_id %><br />
+    <%= f.number_field :template_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cash %><br />
+    <%= f.text_field :cash %>
+  </div>
+  <div class="field">
+    <%= f.label :chequeamt %><br />
+    <%= f.text_field :chequeamt %>
+  </div>
+  <div class="field">
+    <%= f.label :credit %><br />
+    <%= f.text_field :credit %>
+  </div>
+  <div class="field">
+    <%= f.label :discrate %><br />
+    <%= f.text_field :discrate %>
+  </div>
+  <div class="field">
+    <%= f.label :discamt %><br />
+    <%= f.text_field :discamt %>
+  </div>
+  <div class="field">
+    <%= f.label :saletype %><br />
+    <%= f.text_field :saletype %>
+  </div>
+  <div class="field">
+    <%= f.label :dsrdeduction %><br />
+    <%= f.text_field :dsrdeduction %>
+  </div>
+  <div class="field">
+    <%= f.label :balance %><br />
+    <%= f.text_field :balance %>
+  </div>
+  <div class="field">
+    <%= f.label :chequedata %><br />
+    <%= f.text_field :chequedata %>
+  </div>
+  <div class="field">
+    <%= f.label :checkcleardate %><br />
+    <%= f.date_select :checkcleardate %>
+  </div>
+  <div class="field">
+    <%= f.label :checkcollectevents %><br />
+    <%= f.check_box :checkcollectevents %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

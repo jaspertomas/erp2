@@ -1,0 +1,41 @@
+<h1>Listing account_entries</h1>
+
+<table>
+  <tr>
+    <th>Account</th>
+    <th>Qty</th>
+    <th>Date</th>
+    <th>Balance</th>
+    <th>Ref class</th>
+    <th>Ref</th>
+    <th>Priority</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Created at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @account_entries.each do |account_entry| %>
+  <tr>
+    <td><%= account_entry.account_id %></td>
+    <td><%= account_entry.qty %></td>
+    <td><%= account_entry.date %></td>
+    <td><%= account_entry.balance %></td>
+    <td><%= account_entry.ref_class %></td>
+    <td><%= account_entry.ref_id %></td>
+    <td><%= account_entry.priority %></td>
+    <td><%= account_entry.type %></td>
+    <td><%= account_entry.description %></td>
+    <td><%= account_entry.created_at %></td>
+    <td><%= link_to 'Show', account_entry %></td>
+    <td><%= link_to 'Edit', edit_account_entry_path(account_entry) %></td>
+    <td><%= link_to 'Destroy', account_entry, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account entry', new_account_entry_path %>

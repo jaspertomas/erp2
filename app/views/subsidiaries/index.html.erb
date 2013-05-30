@@ -1,0 +1,29 @@
+<h1>Listing subsidiaries</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Account code</th>
+    <th>Fund</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subsidiaries.each do |subsidiary| %>
+  <tr>
+    <td><%= subsidiary.code %></td>
+    <td><%= subsidiary.name %></td>
+    <td><%= subsidiary.account_code %></td>
+    <td><%= subsidiary.fund_id %></td>
+    <td><%= link_to 'Show', subsidiary %></td>
+    <td><%= link_to 'Edit', edit_subsidiary_path(subsidiary) %></td>
+    <td><%= link_to 'Destroy', subsidiary, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subsidiary', new_subsidiary_path %>

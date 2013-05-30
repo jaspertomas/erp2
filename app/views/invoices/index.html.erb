@@ -1,0 +1,73 @@
+<h1>Listing invoices</h1>
+
+<table>
+  <tr>
+    <th>Customer</th>
+    <th>Customer name</th>
+    <th>Invno</th>
+    <th>Ponumber</th>
+    <th>Payonly</th>
+    <th>Total</th>
+    <th>Cheque</th>
+    <th>Chequedate</th>
+    <th>Date</th>
+    <th>Duedate</th>
+    <th>Datepaid</th>
+    <th>Terms</th>
+    <th>Salesman</th>
+    <th>Technician</th>
+    <th>Template</th>
+    <th>Cash</th>
+    <th>Chequeamt</th>
+    <th>Credit</th>
+    <th>Discrate</th>
+    <th>Discamt</th>
+    <th>Saletype</th>
+    <th>Dsrdeduction</th>
+    <th>Balance</th>
+    <th>Chequedata</th>
+    <th>Checkcleardate</th>
+    <th>Checkcollectevents</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invoices.each do |invoice| %>
+  <tr>
+    <td><%= invoice.customer_id %></td>
+    <td><%= invoice.customer_name %></td>
+    <td><%= invoice.invno %></td>
+    <td><%= invoice.ponumber %></td>
+    <td><%= invoice.payonly %></td>
+    <td><%= invoice.total %></td>
+    <td><%= invoice.cheque %></td>
+    <td><%= invoice.chequedate %></td>
+    <td><%= invoice.date %></td>
+    <td><%= invoice.duedate %></td>
+    <td><%= invoice.datepaid %></td>
+    <td><%= invoice.terms_id %></td>
+    <td><%= invoice.salesman_id %></td>
+    <td><%= invoice.technician_id %></td>
+    <td><%= invoice.template_id %></td>
+    <td><%= invoice.cash %></td>
+    <td><%= invoice.chequeamt %></td>
+    <td><%= invoice.credit %></td>
+    <td><%= invoice.discrate %></td>
+    <td><%= invoice.discamt %></td>
+    <td><%= invoice.saletype %></td>
+    <td><%= invoice.dsrdeduction %></td>
+    <td><%= invoice.balance %></td>
+    <td><%= invoice.chequedata %></td>
+    <td><%= invoice.checkcleardate %></td>
+    <td><%= invoice.checkcollectevents %></td>
+    <td><%= link_to 'Show', invoice %></td>
+    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+    <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Invoice', new_invoice_path %>

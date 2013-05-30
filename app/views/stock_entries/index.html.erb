@@ -1,0 +1,47 @@
+<h1>Listing stock_entries</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Qty</th>
+    <th>Balance</th>
+    <th>Stock</th>
+    <th>Ref class</th>
+    <th>Ref</th>
+    <th>Is cancelled</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Stockentry</th>
+    <th>Date</th>
+    <th>Qn</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stock_entries.each do |stock_entry| %>
+  <tr>
+    <td><%= stock_entry.date %></td>
+    <td><%= stock_entry.qty %></td>
+    <td><%= stock_entry.balance %></td>
+    <td><%= stock_entry.stock_id %></td>
+    <td><%= stock_entry.ref_class %></td>
+    <td><%= stock_entry.ref_id %></td>
+    <td><%= stock_entry.is_cancelled %></td>
+    <td><%= stock_entry.Rails %></td>
+    <td><%= stock_entry.g %></td>
+    <td><%= stock_entry.scaffold %></td>
+    <td><%= stock_entry.StockEntry %></td>
+    <td><%= stock_entry.date %></td>
+    <td><%= stock_entry.qn %></td>
+    <td><%= link_to 'Show', stock_entry %></td>
+    <td><%= link_to 'Edit', edit_stock_entry_path(stock_entry) %></td>
+    <td><%= link_to 'Destroy', stock_entry, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stock entry', new_stock_entry_path %>

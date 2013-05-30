@@ -1,0 +1,89 @@
+<h1>Listing product_categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Pro</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Produils</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Producttypes</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Parent</th>
+    <th>Pri</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Pro</th>
+    <th>Category2</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Category4</th>
+    <th>Ca</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Ory6</th>
+    <th>Category7</th>
+    <th>Category8</th>
+    <th>Category9</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffoldpath ids</th>
+    <th>Path</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product_categories.each do |product_category| %>
+  <tr>
+    <td><%= product_category.name %></td>
+    <td><%= product_category.pro %></td>
+    <td><%= product_category.Rails %></td>
+    <td><%= product_category.g %></td>
+    <td><%= product_category.scaffold %></td>
+    <td><%= product_category.Produils %></td>
+    <td><%= product_category.g %></td>
+    <td><%= product_category.scaffold %></td>
+    <td><%= product_category.ProductTypes %></td>
+    <td><%= product_category.name %></td>
+    <td><%= product_category.description %></td>
+    <td><%= product_category.parent_id %></td>
+    <td><%= product_category.pri %></td>
+    <td><%= product_category.Rails %></td>
+    <td><%= product_category.g %></td>
+    <td><%= product_category.scaffold %></td>
+    <td><%= product_category.Pro %></td>
+    <td><%= product_category.category2 %></td>
+    <td><%= product_category.Rails %></td>
+    <td><%= product_category.g %></td>
+    <td><%= product_category.scaffold %></td>
+    <td><%= product_category.category4 %></td>
+    <td><%= product_category.ca %></td>
+    <td><%= product_category.Rails %></td>
+    <td><%= product_category.g %></td>
+    <td><%= product_category.scaffold %></td>
+    <td><%= product_category.ory6 %></td>
+    <td><%= product_category.category7 %></td>
+    <td><%= product_category.category8 %></td>
+    <td><%= product_category.category9 %></td>
+    <td><%= product_category.Rails %></td>
+    <td><%= product_category.g %></td>
+    <td><%= product_category.scaffoldpath_ids %></td>
+    <td><%= product_category.path %></td>
+    <td><%= link_to 'Show', product_category %></td>
+    <td><%= link_to 'Edit', edit_product_category_path(product_category) %></td>
+    <td><%= link_to 'Destroy', product_category, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product category', new_product_category_path %>

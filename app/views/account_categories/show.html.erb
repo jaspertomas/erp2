@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @account_category.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @account_category.code %>
+</p>
+
+<p>
+  <b>Account type:</b>
+  <%= @account_category.account_type_id %>
+</p>
+
+<p>
+  <b>Parent code:</b>
+  <%= @account_category.parent_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_category_path(@account_category) %> |
+<%= link_to 'Back', account_categories_path %>

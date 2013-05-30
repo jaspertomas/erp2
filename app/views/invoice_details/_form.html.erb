@@ -1,0 +1,57 @@
+<%= form_for(@invoice_detail) do |f| %>
+  <% if @invoice_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice_detail.errors.count, "error") %> prohibited this invoice_detail from being saved:</h2>
+
+      <ul>
+      <% @invoice_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :invoice_id %><br />
+    <%= f.text_field :invoice_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Rails %><br />
+    <%= f.text_field :Rails %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.text_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :scaffold %><br />
+    <%= f.text_field :scaffold %>
+  </div>
+  <div class="field">
+    <%= f.label :InvoiceDetails %><br />
+    <%= f.text_field :InvoiceDetails %>
+  </div>
+  <div class="field">
+    <%= f.label :invoice %><br />
+    <%= f.text_field :invoice %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :qty %><br />
+    <%= f.text_field :qty %>
+  </div>
+  <div class="field">
+    <%= f.label :discamt %><br />
+    <%= f.text_field :discamt %>
+  </div>
+  <div class="field">
+    <%= f.label :is_cancelled %><br />
+    <%= f.check_box :is_cancelled %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

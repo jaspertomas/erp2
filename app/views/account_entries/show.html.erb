@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Account:</b>
+  <%= @account_entry.account_id %>
+</p>
+
+<p>
+  <b>Qty:</b>
+  <%= @account_entry.qty %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @account_entry.date %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%= @account_entry.balance %>
+</p>
+
+<p>
+  <b>Ref class:</b>
+  <%= @account_entry.ref_class %>
+</p>
+
+<p>
+  <b>Ref:</b>
+  <%= @account_entry.ref_id %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @account_entry.priority %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @account_entry.type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @account_entry.description %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @account_entry.created_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_entry_path(@account_entry) %> |
+<%= link_to 'Back', account_entries_path %>

@@ -1,0 +1,57 @@
+<h1>Listing vendors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Addr1</th>
+    <th>Addr2</th>
+    <th>Addr3</th>
+    <th>Vtype</th>
+    <th>Cont1</th>
+    <th>Cont2</th>
+    <th>Phone1</th>
+    <th>Phone2</th>
+    <th>Faxnum</th>
+    <th>Email</th>
+    <th>Ta</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Vendors</th>
+    <th>Name</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vendors.each do |vendor| %>
+  <tr>
+    <td><%= vendor.name %></td>
+    <td><%= vendor.addr1 %></td>
+    <td><%= vendor.addr2 %></td>
+    <td><%= vendor.addr3 %></td>
+    <td><%= vendor.vtype %></td>
+    <td><%= vendor.cont1 %></td>
+    <td><%= vendor.cont2 %></td>
+    <td><%= vendor.phone1 %></td>
+    <td><%= vendor.phone2 %></td>
+    <td><%= vendor.faxnum %></td>
+    <td><%= vendor.email %></td>
+    <td><%= vendor.ta %></td>
+    <td><%= vendor.Rails %></td>
+    <td><%= vendor.g %></td>
+    <td><%= vendor.scaffold %></td>
+    <td><%= vendor.Vendors %></td>
+    <td><%= vendor.name %></td>
+    <td><%= vendor.name %></td>
+    <td><%= link_to 'Show', vendor %></td>
+    <td><%= link_to 'Edit', edit_vendor_path(vendor) %></td>
+    <td><%= link_to 'Destroy', vendor, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vendor', new_vendor_path %>

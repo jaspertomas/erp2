@@ -1,0 +1,2 @@
+module PurchaseTemplatsHelper
+end

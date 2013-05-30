@@ -1,0 +1,135 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @invoice.customer_id %>
+</p>
+
+<p>
+  <b>Customer name:</b>
+  <%= @invoice.customer_name %>
+</p>
+
+<p>
+  <b>Invno:</b>
+  <%= @invoice.invno %>
+</p>
+
+<p>
+  <b>Ponumber:</b>
+  <%= @invoice.ponumber %>
+</p>
+
+<p>
+  <b>Payonly:</b>
+  <%= @invoice.payonly %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @invoice.total %>
+</p>
+
+<p>
+  <b>Cheque:</b>
+  <%= @invoice.cheque %>
+</p>
+
+<p>
+  <b>Chequedate:</b>
+  <%= @invoice.chequedate %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @invoice.date %>
+</p>
+
+<p>
+  <b>Duedate:</b>
+  <%= @invoice.duedate %>
+</p>
+
+<p>
+  <b>Datepaid:</b>
+  <%= @invoice.datepaid %>
+</p>
+
+<p>
+  <b>Terms:</b>
+  <%= @invoice.terms_id %>
+</p>
+
+<p>
+  <b>Salesman:</b>
+  <%= @invoice.salesman_id %>
+</p>
+
+<p>
+  <b>Technician:</b>
+  <%= @invoice.technician_id %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%= @invoice.template_id %>
+</p>
+
+<p>
+  <b>Cash:</b>
+  <%= @invoice.cash %>
+</p>
+
+<p>
+  <b>Chequeamt:</b>
+  <%= @invoice.chequeamt %>
+</p>
+
+<p>
+  <b>Credit:</b>
+  <%= @invoice.credit %>
+</p>
+
+<p>
+  <b>Discrate:</b>
+  <%= @invoice.discrate %>
+</p>
+
+<p>
+  <b>Discamt:</b>
+  <%= @invoice.discamt %>
+</p>
+
+<p>
+  <b>Saletype:</b>
+  <%= @invoice.saletype %>
+</p>
+
+<p>
+  <b>Dsrdeduction:</b>
+  <%= @invoice.dsrdeduction %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%= @invoice.balance %>
+</p>
+
+<p>
+  <b>Chequedata:</b>
+  <%= @invoice.chequedata %>
+</p>
+
+<p>
+  <b>Checkcleardate:</b>
+  <%= @invoice.checkcleardate %>
+</p>
+
+<p>
+  <b>Checkcollectevents:</b>
+  <%= @invoice.checkcollectevents %>
+</p>
+
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

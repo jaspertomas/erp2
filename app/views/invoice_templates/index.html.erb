@@ -1,0 +1,23 @@
+<h1>Listing invoice_templates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invoice_templates.each do |invoice_template| %>
+  <tr>
+    <td><%= invoice_template.name %></td>
+    <td><%= link_to 'Show', invoice_template %></td>
+    <td><%= link_to 'Edit', edit_invoice_template_path(invoice_template) %></td>
+    <td><%= link_to 'Destroy', invoice_template, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Invoice template', new_invoice_template_path %>

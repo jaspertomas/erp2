@@ -1,0 +1,27 @@
+<h1>Listing pricelists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Vendor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pricelists.each do |pricelist| %>
+  <tr>
+    <td><%= pricelist.name %></td>
+    <td><%= pricelist.date %></td>
+    <td><%= pricelist.vendor_id %></td>
+    <td><%= link_to 'Show', pricelist %></td>
+    <td><%= link_to 'Edit', edit_pricelist_path(pricelist) %></td>
+    <td><%= link_to 'Destroy', pricelist, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pricelist', new_pricelist_path %>

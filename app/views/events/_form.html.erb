@@ -1,0 +1,85 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_class %><br />
+    <%= f.text_field :parent_class %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_id %><br />
+    <%= f.number_field :parent_id %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_name %><br />
+    <%= f.text_field :parent_name %>
+  </div>
+  <div class="field">
+    <%= f.label :child_class %><br />
+    <%= f.text_field :child_class %>
+  </div>
+  <div class="field">
+    <%= f.label :children_id %><br />
+    <%= f.text_field :children_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :d %><br />
+    <%= f.text_field :d %>
+  </div>
+  <div class="field">
+    <%= f.label :Rails %><br />
+    <%= f.text_field :Rails %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.text_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :scaffold %><br />
+    <%= f.text_field :scaffold %>
+  </div>
+  <div class="field">
+    <%= f.label :Events %><br />
+    <%= f.text_field :Events %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :ping %><br />
+    <%= f.text_field :ping %>
+  </div>
+  <div class="field">
+    <%= f.label :is_cancelled %><br />
+    <%= f.check_box :is_cancelled %>
+  </div>
+  <div class="field">
+    <%= f.label :checkcleardate %><br />
+    <%= f.date_select :checkcleardate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

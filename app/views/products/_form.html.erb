@@ -1,0 +1,97 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Rails %><br />
+    <%= f.text_field :Rails %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.text_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :scaffold %><br />
+    <%= f.text_field :scaffold %>
+  </div>
+  <div class="field">
+    <%= f.label :Produttype_id %><br />
+    <%= f.number_field :Produttype_id %>
+  </div>
+  <div class="field">
+    <%= f.label :qty %><br />
+    <%= f.text_field :qty %>
+  </div>
+  <div class="field">
+    <%= f.label :category1 %><br />
+    <%= f.text_field :category1 %>
+  </div>
+  <div class="field">
+    <%= f.label :category2 %><br />
+    <%= f.text_field :category2 %>
+  </div>
+  <div class="field">
+    <%= f.label :category3 %><br />
+    <%= f.text_field :category3 %>
+  </div>
+  <div class="field">
+    <%= f.label :category4 %><br />
+    <%= f.text_field :category4 %>
+  </div>
+  <div class="field">
+    <%= f.label :category5 %><br />
+    <%= f.text_field :category5 %>
+  </div>
+  <div class="field">
+    <%= f.label :category6 %><br />
+    <%= f.text_field :category6 %>
+  </div>
+  <div class="field">
+    <%= f.label :category7 %><br />
+    <%= f.text_field :category7 %>
+  </div>
+  <div class="field">
+    <%= f.label :category8 %><br />
+    <%= f.text_field :category8 %>
+  </div>
+  <div class="field">
+    <%= f.label :category9 %><br />
+    <%= f.text_field :category9 %>
+  </div>
+  <div class="field">
+    <%= f.label :category10 %><br />
+    <%= f.text_field :category10 %>
+  </div>
+  <div class="field">
+    <%= f.label :publish %><br />
+    <%= f.check_box :publish %>
+  </div>
+  <div class="field">
+    <%= f.label :monitored %><br />
+    <%= f.check_box :monitored %>
+  </div>
+  <div class="field">
+    <%= f.label :barcode %><br />
+    <%= f.text_field :barcode %>
+  </div>
+  <div class="field">
+    <%= f.label :is_service %><br />
+    <%= f.check_box :is_service %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

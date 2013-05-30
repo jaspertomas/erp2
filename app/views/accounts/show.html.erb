@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @account.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @account.name %>
+</p>
+
+<p>
+  <b>Account type:</b>
+  <%= @account.account_type_id %>
+</p>
+
+<p>
+  <b>Account category:</b>
+  <%= @account.account_category_id %>
+</p>
+
+<p>
+  <b>Is special:</b>
+  <%= @account.is_special %>
+</p>
+
+<p>
+  <b>Currentqty:</b>
+  <%= @account.currentqty %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @account.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

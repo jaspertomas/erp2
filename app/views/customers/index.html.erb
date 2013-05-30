@@ -1,0 +1,53 @@
+<h1>Listing customers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Tin no</th>
+    <th>Address</th>
+    <th>Phone1</th>
+    <th>Phone2</th>
+    <th>Faxnum</th>
+    <th>Email</th>
+    <th>Note</th>
+    <th>Rep</th>
+    <th>Repno</th>
+    <th>Rep2</th>
+    <th>Rep2no</th>
+    <th>Taxitem</th>
+    <th>Notepad</th>
+    <th>Salutation</th>
+    <th>Is suki</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.name %></td>
+    <td><%= customer.tin_no %></td>
+    <td><%= customer.address %></td>
+    <td><%= customer.phone1 %></td>
+    <td><%= customer.phone2 %></td>
+    <td><%= customer.faxnum %></td>
+    <td><%= customer.email %></td>
+    <td><%= customer.note %></td>
+    <td><%= customer.rep %></td>
+    <td><%= customer.repno %></td>
+    <td><%= customer.rep2 %></td>
+    <td><%= customer.rep2no %></td>
+    <td><%= customer.taxitem %></td>
+    <td><%= customer.notepad %></td>
+    <td><%= customer.salutation %></td>
+    <td><%= customer.is_suki %></td>
+    <td><%= link_to 'Show', customer %></td>
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer', new_customer_path %>

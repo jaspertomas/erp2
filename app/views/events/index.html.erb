@@ -1,0 +1,55 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Parent class</th>
+    <th>Parent</th>
+    <th>Parent name</th>
+    <th>Child class</th>
+    <th>Children</th>
+    <th>Date</th>
+    <th>Amount</th>
+    <th>D</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Events</th>
+    <th>Type</th>
+    <th>Ping</th>
+    <th>Is cancelled</th>
+    <th>Checkcleardate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.type %></td>
+    <td><%= event.parent_class %></td>
+    <td><%= event.parent_id %></td>
+    <td><%= event.parent_name %></td>
+    <td><%= event.child_class %></td>
+    <td><%= event.children_id %></td>
+    <td><%= event.date %></td>
+    <td><%= event.amount %></td>
+    <td><%= event.d %></td>
+    <td><%= event.Rails %></td>
+    <td><%= event.g %></td>
+    <td><%= event.scaffold %></td>
+    <td><%= event.Events %></td>
+    <td><%= event.type %></td>
+    <td><%= event.ping %></td>
+    <td><%= event.is_cancelled %></td>
+    <td><%= event.checkcleardate %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>

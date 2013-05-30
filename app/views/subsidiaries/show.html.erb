@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @subsidiary.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @subsidiary.name %>
+</p>
+
+<p>
+  <b>Account code:</b>
+  <%= @subsidiary.account_code %>
+</p>
+
+<p>
+  <b>Fund:</b>
+  <%= @subsidiary.fund_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_subsidiary_path(@subsidiary) %> |
+<%= link_to 'Back', subsidiaries_path %>

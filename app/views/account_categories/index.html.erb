@@ -1,0 +1,29 @@
+<h1>Listing account_categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Account type</th>
+    <th>Parent code</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @account_categories.each do |account_category| %>
+  <tr>
+    <td><%= account_category.name %></td>
+    <td><%= account_category.code %></td>
+    <td><%= account_category.account_type_id %></td>
+    <td><%= account_category.parent_code %></td>
+    <td><%= link_to 'Show', account_category %></td>
+    <td><%= link_to 'Edit', edit_account_category_path(account_category) %></td>
+    <td><%= link_to 'Destroy', account_category, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account category', new_account_category_path %>

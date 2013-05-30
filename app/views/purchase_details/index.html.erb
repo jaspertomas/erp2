@@ -1,0 +1,51 @@
+<h1>Listing purchase_details</h1>
+
+<table>
+  <tr>
+    <th>Purchase</th>
+    <th>Description</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th>Total</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Purchasedetails</th>
+    <th>Purccode</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Piscamt</th>
+    <th>Is cancelled</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchase_details.each do |purchase_detail| %>
+  <tr>
+    <td><%= purchase_detail.purchase_id %></td>
+    <td><%= purchase_detail.description %></td>
+    <td><%= purchase_detail.qty %></td>
+    <td><%= purchase_detail.price %></td>
+    <td><%= purchase_detail.total %></td>
+    <td><%= purchase_detail.Rails %></td>
+    <td><%= purchase_detail.g %></td>
+    <td><%= purchase_detail.scaffold %></td>
+    <td><%= purchase_detail.PurchaseDetails %></td>
+    <td><%= purchase_detail.purccode %></td>
+    <td><%= purchase_detail.Rails %></td>
+    <td><%= purchase_detail.g %></td>
+    <td><%= purchase_detail.scaffold %></td>
+    <td><%= purchase_detail.Piscamt %></td>
+    <td><%= purchase_detail.is_cancelled %></td>
+    <td><%= link_to 'Show', purchase_detail %></td>
+    <td><%= link_to 'Edit', edit_purchase_detail_path(purchase_detail) %></td>
+    <td><%= link_to 'Destroy', purchase_detail, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase detail', new_purchase_detail_path %>

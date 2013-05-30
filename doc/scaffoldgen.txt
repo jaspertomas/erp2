@@ -1,0 +1,31 @@
+
+   rails g scaffold Invoice customer_id:integer customer_name:string invno:string ponumber:string payonly:decimal total:decimal cheque:string chequedate:date date:date duedate:date datepaid:date terms_id:integer salesman_id:integer technician_id:integer template_id:integer cash:decimal chequeamt:decimal credit:decimal discrate:string discamt:decimal saletype:string dsrdeduction:decimal balance:decimal chequedata:string checkcleardate:date checkcollectevents:boolean 
+   rails g scaffold Stocks warehouse_id:integer product_id:integer currentqty:decimal date:date quota:decimal
+
+   rails g scaffold Customer name:string tin_no:string address:string phone1:string phone2:string faxnum:string email:string note:string rep:string repno:string rep2:string rep2no:string taxitem:string notepad:string salutation:string is_suki:boolean
+   rails g scaffold Account code:string name:string account_type_id:integer account_category_id:integer is_special:boolean currentqty:decimal date:date
+
+   Rails g scaffold AccountEntries account_id:integer qty:decimal date:date balance:decimal ref_class:string ref_id:integer priority:integer type:string description:string created_at:timestamp
+   Rails g scaffold AccountCategories name:string code:string account_type_id:integer parent_code:string
+   Rails g scaffold AccountTypes name:string
+   Rails g scaffold Brands name:string
+   Rails g scaffold Employee name:string commission:integer is_technician:boolean
+   Rails g scaffold InvoiceDetails invoice_id:integer product_id:integer barcode:string description:string qty:decimal discamt:decimal is_cancelled:boolean
+   Rails g scaffold InvoiceTemplate name:string
+   Rails g scaffold Notes name:string description:string parent_id:integer priority:integer
+   Rails g scaffold Pricelists name:string date:date vendor_id:integer
+
+   Rails g scaffold Products name:string brand_id:integer producttype_id:integer qty:decimal category1:string category2:string category3:string category4:string category5:string category6:string category7:string category8:string category9:string category10:string publish:boolean monitored:boolean barcode:string is_service:boolean
+   Rails g scaffold ProductCategories name:string producttype_id:integer
+   Rails g scaffold ProductTypes name:string description:string parent_id:integer priority:integer category1:string category2:string category3:string category4:string category5:string category6:string category7:string category8:string category9:string category10:string path_ids:string path:string
+   Rails g scaffold PurchaseDetails purchase_id:integer description:string qty:decimal price:decimal total:decimal tax:decimal product_id:integer barcode:string discrate:string discamt:decimal is_cancelled:boolean
+   Rails g scaffold PurchaseTemplate name:string
+   Rails g scaffold Quotes date:date vendor_id:integer product_id:integer price:decimal discrate:string discamt:decimal ref_class:string ref_id:integer total:decimal mine:boolean is_cancelled:boolean
+   Rails g scaffold Settings name:string value:string
+   Rails g scaffold StockEntry date:date qty:decimal balance:decimal stock_id:integer ref_class:string ref_id:integer is_cancelled:boolean priority:integer type:string description:string
+   Rails g scaffold Subsidiaries code:string name:string account_code:string fund_id:integer
+   Rails g scaffold Terms name:string days:integer 
+   Rails g scaffold Vendors name:string addr1:string addr2:string addr3:string vtype:string cont1:string cont2:string phone1:string phone2:string faxnum:string email:string taxid:string
+   Rails g scaffold Warehouses name:string
+   Rails g scaffold Events type:string parent_class:string parent_id:integer parent_name:string child_class:string children_id:string date:date amount:decimal detail1:string detail2:string detail3:string is_cancelled:boolean checkcleardate:date
+   Rails g scaffold Purchases pono:string invno:string total:decimal tax:decimal vendor_id:integer vendor_name:string terms_id:integer employee_id:integer template_id:integer date:date datereceived:date duedate:date vendor_invoice:string discrate:string discamt:decimal status:string type:string cash:decimal cheque:decimal credit:decimal chequeno:string chequedate:date balance:decimal chequedata:string

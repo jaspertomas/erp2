@@ -1,0 +1,89 @@
+<%= form_for(@purchase_templat) do |f| %>
+  <% if @purchase_templat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase_templat.errors.count, "error") %> prohibited this purchase_templat from being saved:</h2>
+
+      <ul>
+      <% @purchase_templat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Rails %><br />
+    <%= f.text_field :Rails %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.text_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :scaffold %><br />
+    <%= f.text_field :scaffold %>
+  </div>
+  <div class="field">
+    <%= f.label :Ps %><br />
+    <%= f.text_field :Ps %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.text_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :scaffold %><br />
+    <%= f.text_field :scaffold %>
+  </div>
+  <div class="field">
+    <%= f.label :Quotes %><br />
+    <%= f.text_field :Quotes %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_id %><br />
+    <%= f.number_field :vendor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :discrate %><br />
+    <%= f.text_field :discrate %>
+  </div>
+  <div class="field">
+    <%= f.label :discamt %><br />
+    <%= f.text_field :discamt %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_class %><br />
+    <%= f.text_field :ref_class %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_id %><br />
+    <%= f.number_field :ref_id %>
+  </div>
+  <div class="field">
+    <%= f.label :total %><br />
+    <%= f.text_field :total %>
+  </div>
+  <div class="field">
+    <%= f.label :mine %><br />
+    <%= f.check_box :mine %>
+  </div>
+  <div class="field">
+    <%= f.label :is_cancelled %><br />
+    <%= f.check_box :is_cancelled %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

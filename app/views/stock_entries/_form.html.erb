@@ -1,0 +1,69 @@
+<%= form_for(@stock_entry) do |f| %>
+  <% if @stock_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stock_entry.errors.count, "error") %> prohibited this stock_entry from being saved:</h2>
+
+      <ul>
+      <% @stock_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :qty %><br />
+    <%= f.text_field :qty %>
+  </div>
+  <div class="field">
+    <%= f.label :balance %><br />
+    <%= f.text_field :balance %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_id %><br />
+    <%= f.number_field :stock_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_class %><br />
+    <%= f.text_field :ref_class %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_id %><br />
+    <%= f.number_field :ref_id %>
+  </div>
+  <div class="field">
+    <%= f.label :is_cancelled %><br />
+    <%= f.text_field :is_cancelled %>
+  </div>
+  <div class="field">
+    <%= f.label :Rails %><br />
+    <%= f.text_field :Rails %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.text_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :scaffold %><br />
+    <%= f.text_field :scaffold %>
+  </div>
+  <div class="field">
+    <%= f.label :StockEntry %><br />
+    <%= f.text_field :StockEntry %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :qn %><br />
+    <%= f.text_field :qn %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

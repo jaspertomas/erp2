@@ -1,0 +1,81 @@
+<h1>Listing purchases</h1>
+
+<table>
+  <tr>
+    <th>Pono</th>
+    <th>Invno</th>
+    <th>Total</th>
+    <th>Tax</th>
+    <th>Vendor</th>
+    <th>Vendor name</th>
+    <th>Terms</th>
+    <th>Employee</th>
+    <th>Template </th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Datereceived</th>
+    <th>Duedate</th>
+    <th>Ve</th>
+    <th>Rails</th>
+    <th>G</th>
+    <th>Scaffold</th>
+    <th>Purchases</th>
+    <th>Poing</th>
+    <th>Discamt</th>
+    <th>Status</th>
+    <th>Type</th>
+    <th>Cash</th>
+    <th>Cheque</th>
+    <th>Credit</th>
+    <th>Chequeno</th>
+    <th>Chequedate</th>
+    <th>Balance</th>
+    <th>Chequedata</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchases.each do |purchase| %>
+  <tr>
+    <td><%= purchase.pono %></td>
+    <td><%= purchase.invno %></td>
+    <td><%= purchase.total %></td>
+    <td><%= purchase.tax %></td>
+    <td><%= purchase.vendor_id %></td>
+    <td><%= purchase.vendor_name %></td>
+    <td><%= purchase.terms_id %></td>
+    <td><%= purchase.employee_id %></td>
+    <td><%= purchase.template_ %></td>
+    <td><%= purchase.Rails %></td>
+    <td><%= purchase.g %></td>
+    <td><%= purchase.scaffold %></td>
+    <td><%= purchase.datereceived %></td>
+    <td><%= purchase.duedate %></td>
+    <td><%= purchase.ve %></td>
+    <td><%= purchase.Rails %></td>
+    <td><%= purchase.g %></td>
+    <td><%= purchase.scaffold %></td>
+    <td><%= purchase.Purchases %></td>
+    <td><%= purchase.poing %></td>
+    <td><%= purchase.discamt %></td>
+    <td><%= purchase.status %></td>
+    <td><%= purchase.type %></td>
+    <td><%= purchase.cash %></td>
+    <td><%= purchase.cheque %></td>
+    <td><%= purchase.credit %></td>
+    <td><%= purchase.chequeno %></td>
+    <td><%= purchase.chequedate %></td>
+    <td><%= purchase.balance %></td>
+    <td><%= purchase.chequedata %></td>
+    <td><%= link_to 'Show', purchase %></td>
+    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+    <td><%= link_to 'Destroy', purchase, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase', new_purchase_path %>
