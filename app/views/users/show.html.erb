@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+ <% provide(:title, @user.name) %>
+ <h1><%= @user.name %></h1>
+
+<!--   <b>Email:</b>: <%#= @user.email %>-->
+
+<p>
+  <b>Is admin:</b>
+  <%= @user.is_admin %>
+</p>
+<p>
+  <b>Is encoder:</b>
+  <%= @user.is_encoder %>
+</p>
+<p>
+  <b>Is batcher:</b>
+  <%= @user.is_batcher %>
+</p>
+
+<br><hr>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
