@@ -1,6 +1,7 @@
-Erp2::Application.routes.draw do  post "/participants/finalize"
-
+Erp2::Application.routes.draw do 
+  
   resources :invoices
+  post "invoices/dsr"
   resources :stocks
   resources :customers
   resources :accounts

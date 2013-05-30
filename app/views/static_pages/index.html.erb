@@ -1,6 +1,30 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<h1>Home Page</h1>
 
+<table>
+<tr valign=top>
+  <td width=50%>
+<%= link_to "Invoices",invoices_path %>
+<br><%= link_to "Purchases",purchases_path %>
+<br><%= link_to "Terms",terms_path %>
+<br><%= link_to "InvoiceTemplates",invoice_templates_path %>
+<br><%= link_to "Products",products_path %>
+<br><%= link_to "Brands",brands_path %>
+<br><%= link_to "Product Types",product_types_path %>
+<br><%= link_to "Customers",customers_path %>
+<br><%= link_to "Vendors",vendors_path %>
+<br><%= link_to "Daily Sales Report",invoices_dsr_path %>
 
-<%=debug(@params)%>
-<%=debug(@cookies)%>
+  </td>
+  <td width=50%>
+<%= link_to "Accounts",accounts_path %>
+<br><%= link_to "Account Categories",accounts_path %>
+<br><%#= link_to "Journals",journals_path %>
+
+  </td>
+  <td width=50%>
+<%= link_to "Stock",stocks_path %>
+<%#= link_to "Stock quotas",stock/stats_path %>
+
+  </td>
+</tr>
+</table>
