@@ -152,6 +152,9 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.string   "chequedata"
     t.date     "checkcleardate"
     t.boolean  "checkcollectevents"
+    t.text     "notes"
+    t.string   "status"
+    t.boolean  "hidden"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end

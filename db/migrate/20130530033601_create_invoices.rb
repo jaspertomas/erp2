@@ -27,6 +27,9 @@ class CreateInvoices < ActiveRecord::Migration
       t.string :chequedata
       t.date :checkcleardate
       t.boolean :checkcollectevents
+      t.text :notes
+      t.string :status
+      t.boolean :hidden
 
       t.timestamps
     end
