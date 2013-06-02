@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
 
   create_table "account_entries", :force => true do |t|
     t.integer  "account_id"
-    t.decimal  "qty"
+    t.decimal  "qty",         :precision => 10, :scale => 0
     t.date     "date"
-    t.decimal  "balance"
+    t.decimal  "balance",     :precision => 10, :scale => 0
     t.string   "ref_class"
     t.integer  "ref_id"
     t.integer  "priority"
     t.string   "type"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "account_types", :force => true do |t|
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.integer  "account_type_id"
     t.integer  "account_category_id"
     t.boolean  "is_special"
-    t.decimal  "currentqty"
+    t.decimal  "currentqty",          :precision => 10, :scale => 0
     t.date     "date"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
   end
 
   create_table "brands", :force => true do |t|
@@ -97,14 +97,14 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.string   "child_class"
     t.string   "children_id"
     t.date     "date"
-    t.decimal  "amount"
+    t.decimal  "amount",         :precision => 10, :scale => 0
     t.string   "detail1"
     t.string   "detail2"
     t.string   "detail3"
     t.boolean  "is_cancelled"
     t.date     "checkcleardate"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "invoice_details", :force => true do |t|
@@ -112,11 +112,11 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.integer  "product_id"
     t.string   "barcode"
     t.string   "description"
-    t.decimal  "qty"
-    t.decimal  "discamt"
+    t.decimal  "qty",          :precision => 10, :scale => 0
+    t.decimal  "discamt",      :precision => 10, :scale => 0
     t.boolean  "is_cancelled"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "invoice_templates", :force => true do |t|
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.string   "customer_name"
     t.string   "invno"
     t.string   "ponumber"
-    t.decimal  "payonly"
-    t.decimal  "total"
+    t.decimal  "payonly",            :precision => 10, :scale => 0
+    t.decimal  "total",              :precision => 10, :scale => 0
     t.string   "cheque"
     t.date     "chequedate"
     t.date     "date"
@@ -141,22 +141,22 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.integer  "salesman_id"
     t.integer  "technician_id"
     t.integer  "template_id"
-    t.decimal  "cash"
-    t.decimal  "chequeamt"
-    t.decimal  "credit"
+    t.decimal  "cash",               :precision => 10, :scale => 0
+    t.decimal  "chequeamt",          :precision => 10, :scale => 0
+    t.decimal  "credit",             :precision => 10, :scale => 0
     t.string   "discrate"
-    t.decimal  "discamt"
+    t.decimal  "discamt",            :precision => 10, :scale => 0
     t.string   "saletype"
-    t.decimal  "dsrdeduction"
-    t.decimal  "balance"
+    t.decimal  "dsrdeduction",       :precision => 10, :scale => 0
+    t.decimal  "balance",            :precision => 10, :scale => 0
     t.string   "chequedata"
     t.date     "checkcleardate"
     t.boolean  "checkcollectevents"
     t.text     "notes"
     t.string   "status"
     t.boolean  "hidden"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
   create_table "notes", :force => true do |t|
@@ -208,7 +208,7 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.string   "name"
     t.integer  "brand_id"
     t.integer  "producttype_id"
-    t.decimal  "qty"
+    t.decimal  "qty",            :precision => 10, :scale => 0
     t.string   "category1"
     t.string   "category2"
     t.string   "category3"
@@ -223,24 +223,24 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.boolean  "monitored"
     t.string   "barcode"
     t.boolean  "is_service"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "purchase_details", :force => true do |t|
     t.integer  "purchase_id"
     t.string   "description"
-    t.decimal  "qty"
-    t.decimal  "price"
-    t.decimal  "total"
-    t.decimal  "tax"
+    t.decimal  "qty",          :precision => 10, :scale => 0
+    t.decimal  "price",        :precision => 10, :scale => 0
+    t.decimal  "total",        :precision => 10, :scale => 0
+    t.decimal  "tax",          :precision => 10, :scale => 0
     t.integer  "product_id"
     t.string   "barcode"
     t.string   "discrate"
-    t.decimal  "discamt"
+    t.decimal  "discamt",      :precision => 10, :scale => 0
     t.boolean  "is_cancelled"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "purchase_templates", :force => true do |t|
@@ -252,8 +252,8 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
   create_table "purchases", :force => true do |t|
     t.string   "pono"
     t.string   "invno"
-    t.decimal  "total"
-    t.decimal  "tax"
+    t.decimal  "total",          :precision => 10, :scale => 0
+    t.decimal  "tax",            :precision => 10, :scale => 0
     t.integer  "vendor_id"
     t.string   "vendor_name"
     t.integer  "terms_id"
@@ -264,34 +264,34 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.date     "duedate"
     t.string   "vendor_invoice"
     t.string   "discrate"
-    t.decimal  "discamt"
+    t.decimal  "discamt",        :precision => 10, :scale => 0
     t.string   "status"
     t.string   "type"
-    t.decimal  "cash"
-    t.decimal  "cheque"
-    t.decimal  "credit"
+    t.decimal  "cash",           :precision => 10, :scale => 0
+    t.decimal  "cheque",         :precision => 10, :scale => 0
+    t.decimal  "credit",         :precision => 10, :scale => 0
     t.string   "chequeno"
     t.date     "chequedate"
-    t.decimal  "balance"
+    t.decimal  "balance",        :precision => 10, :scale => 0
     t.string   "chequedata"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "quotes", :force => true do |t|
     t.date     "date"
     t.integer  "vendor_id"
     t.integer  "product_id"
-    t.decimal  "price"
+    t.decimal  "price",        :precision => 10, :scale => 0
     t.string   "discrate"
-    t.decimal  "discamt"
+    t.decimal  "discamt",      :precision => 10, :scale => 0
     t.string   "ref_class"
     t.integer  "ref_id"
-    t.decimal  "total"
+    t.decimal  "total",        :precision => 10, :scale => 0
     t.boolean  "mine"
     t.boolean  "is_cancelled"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "settings", :force => true do |t|
@@ -303,8 +303,8 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
 
   create_table "stock_entries", :force => true do |t|
     t.date     "date"
-    t.decimal  "qty"
-    t.decimal  "balance"
+    t.decimal  "qty",          :precision => 10, :scale => 0
+    t.decimal  "balance",      :precision => 10, :scale => 0
     t.integer  "stock_id"
     t.string   "ref_class"
     t.integer  "ref_id"
@@ -312,18 +312,18 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
     t.integer  "priority"
     t.string   "type"
     t.string   "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "stocks", :force => true do |t|
     t.integer  "warehouse_id"
     t.integer  "product_id"
-    t.decimal  "currentqty"
+    t.decimal  "currentqty",   :precision => 10, :scale => 0
     t.date     "date"
-    t.decimal  "quota"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.decimal  "quota",        :precision => 10, :scale => 0
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "subsidiaries", :force => true do |t|

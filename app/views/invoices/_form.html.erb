@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :customer_id %><br />
-    <%= f.collection_select :customer_id, Customer.all, :id, :name %>
+    <%= f.collection_select :customer_id, Customer.all, :id, :name, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :customer_name %><br />
@@ -33,11 +33,11 @@
   </div>
   <div class="field">
     <%= f.label :salesman_id %><br />
-    <%= f.number_field :salesman_id %>
+    <%= f.collection_select :salesman_id, Employee.all, :id, :name, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :technician_id %><br />
-    <%= f.number_field :technician_id %>
+    <%= f.collection_select :technician_id, Employee.all, :id, :name, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :saletype %><br />
