@@ -41,7 +41,8 @@
   </div>
   <div class="field">
     <%= f.label :saletype %><br />
-    <%= f.text_field :saletype %>
+	<%=select_tag "invoice[saletype]", options_for_select(['Cash', 'Cheque','Account','Other'],@invoice.saletype) %>
+
   </div>
   <div class="field">
     <%= f.label :cash %><br />
@@ -64,7 +65,7 @@
     <%= f.text_field :discamt %>
   </div>
   <div class="field">
-    <%= f.label :checkcleardate %><br />
+    Check receive date<br />
     <%= f.text_field :checkcleardate, :class => 'datepicker'  %>	
   </div>
   <div class="field">
@@ -72,7 +73,7 @@
     <%= f.text_field :chequedate, :class => 'datepicker'  %>	
   </div>
   <div class="field">
-    <%= f.label :cheque %><br />
+    Check no.<br />
     <%= f.text_field :cheque %>
   </div>
   <div class="field">

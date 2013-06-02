@@ -26,6 +26,9 @@ class InvoicesController < ApplicationController
   def new
     @invoice = Invoice.new
     @invoice.date=Date.today
+    default_salesman_id=Setting.find_by_name("default_salesman_id")
+    @invoice.salesman_id= default_salesman_id.value if default_salesman_id!=nil
+
 
     respond_to do |format|
       format.html # new.html.erb

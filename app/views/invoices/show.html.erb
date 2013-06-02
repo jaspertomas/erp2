@@ -1,5 +1,134 @@
 <p id="notice"><%= notice %></p>
 
+<table>
+  <tr valign=top>
+    <td>
+      <table>
+        <tr>
+          <td>Date</td>
+          <td><%= @invoice.date %></td>
+        </tr>
+        <tr>
+          <td>Inv no.</td>
+          <td><%= @invoice.invoice_template.to_s + " " + @invoice.invno %></td>
+        </tr>
+        <tr>
+          <td>PO No.</td>
+          <td><%= @invoice.ponumber %></td>
+        </tr>
+        <tr>
+          <td>Customer</td>
+          <td>
+          <%if @invoice.customer%>
+          	<%= link_to @invoice.customer.name ,edit_customer_path(@invoice.customer) ,target:"customer_edit"%>
+          	<%= " ("+@invoice.customer.tin_no+")"  %>
+          <%end%>
+          </td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>
+          	<%= @invoice.cash.to_s + "+" + @invoice.chequeamt.to_s + "+" + @invoice.credit.to_s + "=" + @invoice.total.to_s %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= link_to("Edit",edit_invoice_path(@invoice)) %></td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <td>Sale Type</td>
+          <td><%= @invoice.saletype %></td>
+        </tr>
+        <tr>
+          <td>Due date</td>
+          <td><%= @invoice.duedate %></td>
+        </tr>
+        <tr>
+          <td>Sales Representative</td>
+          <td><%= @invoice.salesman.name %></td>
+        </tr>
+        <tr>
+          <td>Discount Rate</td>
+          <td><%= @invoice.discrate %></td>
+        </tr>
+        <tr>
+          <td>Discount Amount</td>
+          <td><%= @invoice.discamt %></td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <td>Cash</td>
+          <td><%= @invoice.cash %></td>
+        </tr>
+        <tr>
+          <td>Cheque</td>
+          <td><%= @invoice.chequeamt %></td>
+        </tr>
+        <tr>
+          <td>Account</td>
+          <td><%= @invoice.credit %></td>
+        </tr>
+        <tr>
+          <td>Terms</td>
+          <td><%= @invoice.terms %></td>
+        </tr>
+        <tr>
+          <td>Notes</td>
+          <td><%= @invoice.notes %></td>
+        </tr>
+      </table>
+    </td>
+    <td>
+			<table>
+				<tr>
+					<td>Status</td>
+					<td><% 
+
+if(@invoice.status=="Paid")
+	today=Date.today;
+	checkcleardate=MyDateTime::frommysql(@invoice.checkcleardate);
+	status="Paid";
+	if(checkcleardate > today )
+		status="Check to clear on "+checkcleardate.toshortdate;
+		echo status;
+	end
+
+
+else
+	puts @invoice.status;
+end
+%></td>
+				</tr>
+
+				<tr>
+					<td>Cheque Data</td>
+        <% 
+        if @invoice.chequedata
+	        cheques=@invoice.chequedata.split(",")
+	        cheques.each do |cheque| %>
+					<td><%= cheque%></td>				
+					<%end%>
+			  </tr>
+				<tr>
+					<td></td>				
+			  <% end %>
+				</tr>
+			</table>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
 <p>
   <b>Customer:</b>
   <%= @invoice.customer_id %>
