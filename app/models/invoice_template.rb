@@ -10,7 +10,8 @@
 
 class InvoiceTemplate < ActiveRecord::Base
   attr_accessible :name
-  
+  has_many :invoices, :class_name => "Invoice", :foreign_key => 'template_id'
+
   def to_s
     name
   end

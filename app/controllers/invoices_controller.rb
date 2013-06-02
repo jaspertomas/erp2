@@ -15,6 +15,7 @@ class InvoicesController < ApplicationController
   def show
     @invoice = Invoice.find(params[:id])
     @invoice_detail = InvoiceDetail.new
+    @invoice_detail.invoice_id=@invoice.id
 
     respond_to do |format|
       format.html # show.html.erb

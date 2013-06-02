@@ -47,7 +47,7 @@ class Invoice < ActiveRecord::Base
   belongs_to :customer, :class_name => "Customer", :foreign_key => 'customer_id'
   belongs_to :salesman, :class_name => "Employee", :foreign_key => 'salesman_id'
   belongs_to :technician, :class_name => "Employee", :foreign_key => 'technician_id'
-  belongs_to :invoice_template, :class_name => "InvoiceTemplate", :foreign_key => 'template_id'
+  belongs_to :template, :class_name => "InvoiceTemplate", :foreign_key => 'template_id'
   belongs_to :terms, :class_name => "Term", :foreign_key => 'terms_id'
   has_many :details, :class_name => "InvoiceDetail", :foreign_key => 'invoice_id'
   

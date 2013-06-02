@@ -10,7 +10,7 @@
         </tr>
         <tr>
           <td>Inv no.</td>
-          <td><%= @invoice.invoice_template.to_s + " " + @invoice.invno %></td>
+          <td><%= @invoice.template.to_s + " " + @invoice.invno %></td>
         </tr>
         <tr>
           <td>PO No.</td>
@@ -171,18 +171,18 @@ end
 		<td>Discamt</td>
 	</tr>
 	<tr>
-		<td><%= f.number_field :product_id %></td>
+		<td><%= f.collection_select :product_id, Product.all, :id, :name %></td>
 		<td><%= f.text_field :description %></td>
-		<td><%= f.number_field :price %></td>
-		<td><%= f.number_field :qty %></td>
-		<td><%= f.number_field :discrate %></td>
-		<td><%= f.number_field :discamt %></td>
+		<td><%= f.number_field :price, size:15 %></td>
+		<td><%= f.number_field :qty, size:15 %></td>
+		<td><%= f.number_field :discrate, size:15 %></td>
+		<td><%= f.number_field :discamt, size:15 %></td>
 	</tr>
 	<tr>
-	  <td colspan=3>Barcode:  <%= f.text_field :barcode %></td>
+	  <td colspan=3>Barcode:  <%= f.text_field :barcode, size:15 %></td>
 	</tr>
 </table>
-    <%= f.submit %>#, value:"Save", onclick:'saveinvoicedetail()'
+    <%= f.submit %>
 
 <% end %>
 
@@ -202,18 +202,18 @@ end
   <% @invoice.details.each do |detail|%>
   <tr>
     <td><%= detail.barcode %></td>
-    <td><%= link_to(detail.product,"product/view?id=" + detail.product_id) %></td>
+    <td><%= link_to(detail.product.name,product_path(detail.product_id)) %></td>
     <td><%= detail.description %></td>
     <td><%= detail.qty %></td>
     <td><%= detail.price %></td>
     <td><%= detail.total %></td>
-    <td><%= link_to("Price List",product_type_path(detail.product.producttype) ) %></td>
+    <td><%= link_to("Price List",product_type_path(detail.product.producttype) )if detail.product %></td>
     <td><%= link_to("Edit",edit_invoice_detail_path(detail)) %></td>
     <td>
-<%= link_to( 'Delete', invoice_detail_path(detail), method: delete, 'confirm' => 'Are you sure?') %>
+<%= link_to( 'Delete', invoice_detail_path(detail), method: 'delete', 'confirm' => 'Are you sure?') %>
 
     </td>
-    <td><%= link_to("Edit Product","product/edit?id=" + detail.productId) %></td>
+    <td><%= link_to("Edit Product","product/edit?id=" + detail.product_id.to_s) %></td>
   </tr>
   <% end %>
 </table>

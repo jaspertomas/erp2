@@ -24,7 +24,11 @@ class InvoiceDetailsController < ApplicationController
   # GET /invoice_details/new
   # GET /invoice_details/new.json
   def new
+    if params[:invoice_id]==nil
+      return redirect_to static_pages_invalidurlerror_path
+    end
     @invoice_detail = InvoiceDetail.new
+    @invoice_detail.invoice_id=params[:invoice_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +48,7 @@ class InvoiceDetailsController < ApplicationController
 
     respond_to do |format|
       if @invoice_detail.save
-        format.html { redirect_to @invoice_detail, notice: 'Invoice detail was successfully created.' }
+        format.html { redirect_to @invoice_detail.invoice, notice: 'Invoice detail was successfully created.' }
         format.json { render json: @invoice_detail, status: :created, location: @invoice_detail }
       else
         format.html { render action: "new" }
@@ -60,7 +64,7 @@ class InvoiceDetailsController < ApplicationController
 
     respond_to do |format|
       if @invoice_detail.update_attributes(params[:invoice_detail])
-        format.html { redirect_to @invoice_detail, notice: 'Invoice detail was successfully updated.' }
+        format.html { redirect_to @invoice_detail.invoice, notice: 'Invoice detail was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +80,7 @@ class InvoiceDetailsController < ApplicationController
     @invoice_detail.destroy
 
     respond_to do |format|
-      format.html { redirect_to invoice_details_url }
+      format.html { redirect_to @invoice_detail.invoice }
       format.json { head :no_content }
     end
   end

@@ -17,11 +17,12 @@
   </div>
   <div class="field">
     <%= f.label :invoice_id %><br />
-    <%= f.number_field :invoice_id %>
+    <%= f.hidden_field :invoice_id %>
+    <%= link_to @invoice_detail.invoice.invno, @invoice_detail.invoice %>
   </div>
   <div class="field">
     <%= f.label :product_id %><br />
-    <%= f.number_field :product_id %>
+    <%= f.collection_select :product_id, Product.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

@@ -47,6 +47,7 @@ Erp2::Application.routes.draw do
   get "static_pages/adminonlyerror"
   get "static_pages/encoderonlyerror"
   get "static_pages/batcheronlyerror"
+  get "static_pages/invalidurlerror"
 
   get "static_pages/search"
 

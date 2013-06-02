@@ -11,4 +11,5 @@
 
 class Term < ActiveRecord::Base
   attr_accessible :days, :name
+  has_many :invoices, :class_name => "Invoice", :foreign_key => 'terms_id'
 end
