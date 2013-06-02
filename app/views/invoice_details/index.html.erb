@@ -2,13 +2,17 @@
 
 <table>
   <tr>
+    <th>Barcode</th>
     <th>Invoice</th>
     <th>Product</th>
-    <th>Barcode</th>
     <th>Description</th>
-    <th>Qty</th>
+    <th>Discrate</th>
     <th>Discamt</th>
     <th>Is cancelled</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th>Unittotal</th>
+    <th>Total</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,13 +20,17 @@
 
 <% @invoice_details.each do |invoice_detail| %>
   <tr>
+    <td><%= invoice_detail.barcode %></td>
     <td><%= invoice_detail.invoice_id %></td>
     <td><%= invoice_detail.product_id %></td>
-    <td><%= invoice_detail.barcode %></td>
     <td><%= invoice_detail.description %></td>
-    <td><%= invoice_detail.qty %></td>
+    <td><%= invoice_detail.discrate %></td>
     <td><%= invoice_detail.discamt %></td>
     <td><%= invoice_detail.is_cancelled %></td>
+    <td><%= invoice_detail.qty %></td>
+    <td><%= invoice_detail.price %></td>
+    <td><%= invoice_detail.unittotal %></td>
+    <td><%= invoice_detail.total %></td>
     <td><%= link_to 'Show', invoice_detail %></td>
     <td><%= link_to 'Edit', edit_invoice_detail_path(invoice_detail) %></td>
     <td><%= link_to 'Destroy', invoice_detail, confirm: 'Are you sure?', method: :delete %></td>

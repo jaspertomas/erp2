@@ -14,6 +14,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/1.json
   def show
     @invoice = Invoice.find(params[:id])
+    @invoice_detail = InvoiceDetail.new
 
     respond_to do |format|
       format.html # show.html.erb

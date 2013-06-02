@@ -48,7 +48,7 @@
         </tr>
         <tr>
           <td>Sales Representative</td>
-          <td><%= @invoice.salesman.name %></td>
+          <td><%= @invoice.salesman.name if @invoice.salesman %></td>
         </tr>
         <tr>
           <td>Discount Rate</td>
@@ -142,9 +142,25 @@ end
 <br>
 <br>
 <% #echo link_to("Add Detail","invoicedetail/new?invoice_id=" + @invoice.id) %>
-<%= form_tag_for(@detailform,"@invoicedetail"); %>
-<input type=hidden id=invoicedetail_invoice_id name=invoicedetail[invoice_id] value=<%= @invoice.id%>  >
-    <%= @detailform.renderHiddenFields(false) %>
+
+
+<%= form_for(@invoice_detail) do |f| %>
+  <% if @invoice_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice_detail.errors.count, "error") %> prohibited this invoice_detail from being saved:</h2>
+
+      <ul>
+      <% @invoice_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+    <%= f.hidden_field :invoice_id %>
 <table>
 	<tr>
 		<td>Product</td>
@@ -155,23 +171,21 @@ end
 		<td>Discamt</td>
 	</tr>
 	<tr>
-		<td><%= @detailform["product_id"]; %></td>
-		<td><%= @detailform["description"]; %></td>
-		<td><%= @detailform["price"]; %></td>
-		<td><%= @detailform["qty"]; %></td>
-		<td><%= @detailform["discrate"]; %></td>
-		<td><%= @detailform["discamt"]; %></td>
+		<td><%= f.number_field :product_id %></td>
+		<td><%= f.text_field :description %></td>
+		<td><%= f.number_field :price %></td>
+		<td><%= f.number_field :qty %></td>
+		<td><%= f.number_field :discrate %></td>
+		<td><%= f.number_field :discamt %></td>
 	</tr>
 	<tr>
-	  <td>Barcode: <%= @detailform["barcode"]; %></td>
+	  <td colspan=3>Barcode:  <%= f.text_field :barcode %></td>
 	</tr>
 </table>
-<input type=button name=submit value=Save onclick='saveinvoicedetail' >
-<%
-  #if(count($products))foreach($products as product)
-    #echo '<a onclick="changeText(' + product.id + ')" >'.product.name + '</a>';
-%>
-</form>
+    <%= f.submit %>#, value:"Save", onclick:'saveinvoicedetail()'
+
+<% end %>
+
 <br>
 
 <input type=button value=Refresh onclick='viewinvoiceitemtable' >
@@ -188,12 +202,12 @@ end
   <% @invoice.details.each do |detail|%>
   <tr>
     <td><%= detail.barcode %></td>
-    <td><%= link_to(detail.product,"product/view?id=" + detail.productId) %></td>
+    <td><%= link_to(detail.product,"product/view?id=" + detail.product_id) %></td>
     <td><%= detail.description %></td>
     <td><%= detail.qty %></td>
     <td><%= detail.price %></td>
     <td><%= detail.total %></td>
-    <td><%= link_to("Price List",product_type_path(detail.product.producttype)) %></td>
+    <td><%= link_to("Price List",product_type_path(detail.product.producttype) ) %></td>
     <td><%= link_to("Edit",edit_invoice_detail_path(detail)) %></td>
     <td>
 <%= link_to( 'Delete', invoice_detail_path(detail), method: delete, 'confirm' => 'Are you sure?') %>

@@ -1,13 +1,17 @@
 class CreateInvoiceDetails < ActiveRecord::Migration
   def change
     create_table :invoice_details do |t|
+      t.string :barcode
       t.integer :invoice_id
       t.integer :product_id
-      t.string :barcode
       t.string :description
-      t.decimal :qty
+      t.decimal :discrate
       t.decimal :discamt
       t.boolean :is_cancelled
+      t.decimal :qty
+      t.decimal :price
+      t.decimal :unittotal
+      t.decimal :total
 
       t.timestamps
     end

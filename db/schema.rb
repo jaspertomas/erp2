@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530034015) do
+ActiveRecord::Schema.define(:version => 20130602121905) do
 
   create_table "account_categories", :force => true do |t|
     t.string   "name"
@@ -108,13 +108,17 @@ ActiveRecord::Schema.define(:version => 20130530034015) do
   end
 
   create_table "invoice_details", :force => true do |t|
+    t.string   "barcode"
     t.integer  "invoice_id"
     t.integer  "product_id"
-    t.string   "barcode"
     t.string   "description"
-    t.decimal  "qty",          :precision => 10, :scale => 0
+    t.decimal  "discrate",     :precision => 10, :scale => 0
     t.decimal  "discamt",      :precision => 10, :scale => 0
     t.boolean  "is_cancelled"
+    t.decimal  "qty",          :precision => 10, :scale => 0
+    t.decimal  "price",        :precision => 10, :scale => 0
+    t.decimal  "unittotal",    :precision => 10, :scale => 0
+    t.decimal  "total",        :precision => 10, :scale => 0
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
   end

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Barcode:</b>
+  <%= @invoice_detail.barcode %>
+</p>
+
+<p>
   <b>Invoice:</b>
   <%= @invoice_detail.invoice_id %>
 </p>
@@ -11,18 +16,13 @@
 </p>
 
 <p>
-  <b>Barcode:</b>
-  <%= @invoice_detail.barcode %>
-</p>
-
-<p>
   <b>Description:</b>
   <%= @invoice_detail.description %>
 </p>
 
 <p>
-  <b>Qty:</b>
-  <%= @invoice_detail.qty %>
+  <b>Discrate:</b>
+  <%= @invoice_detail.discrate %>
 </p>
 
 <p>
@@ -33,6 +33,26 @@
 <p>
   <b>Is cancelled:</b>
   <%= @invoice_detail.is_cancelled %>
+</p>
+
+<p>
+  <b>Qty:</b>
+  <%= @invoice_detail.qty %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @invoice_detail.price %>
+</p>
+
+<p>
+  <b>Unittotal:</b>
+  <%= @invoice_detail.unittotal %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @invoice_detail.total %>
 </p>
 
 
