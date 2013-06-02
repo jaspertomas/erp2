@@ -124,141 +124,94 @@ end
   </tr>
 </table>
 
+  <td><%= link_to("Cheque Collection","event/new?parent_class=Invoice&parent_id=" + @invoice.id.to_s + "&type=ChequeCollect") %></td>
+          <td><%= link_to("Cash Collection","event/new?parent_class=Invoice&parent_id=" + @invoice.id.to_s + "&type=CashCollect") %></td>
+          <td><%= link_to("Bank Expense","event/new?parent_class=Invoice&parent_id=" + @invoice.id.to_s + "&type=BankExp") %></td>
+          <td><%= link_to("Cancel","invoice/cancel?id=" + @invoice.id.to_s) %></td>
+          <td><%= link_to("Cash sale","invoice/adjustsaletype?id=" + @invoice.id.to_s + "&type=Cash") if(@invoice.saletype!="Cash") %></td>
+          <td><%= link_to("Cheque sale","invoice/adjustsaletype?id=" + @invoice.id.to_s + "&type=Cheque") if(@invoice.saletype!="Cheque")%></td>
+          <td><%= link_to("Account sale","invoice/adjustsaletype?id=" + @invoice.id.to_s + "&type=Account") if(@invoice.saletype!="Credit")%></td>
+<br>
+          <td><%= link_to("View Details","invoice/view?id=" + @invoice.id.to_s) %></td>
+          <td><%= link_to("View Events","invoice/events?id=" + @invoice.id.to_s) %></td>
+          <td><%= link_to("View Accounting","invoice/accounting?id=" + @invoice.id.to_s) %></td>
+            
+        <td><%=link_to("Hide ","invoice/hide?id=" + @invoice.id.to_s)if(@invoice.hidden==0)  %></td>
+        <td><%= link_to("Unhide ","invoice/unhide?id=" + @invoice.id.to_s) if(@invoice.hidden==1)%></td>
 
+<br>
+<br>
+<% #echo link_to("Add Detail","invoicedetail/new?invoice_id=" + @invoice.id) %>
+<%= form_tag_for(@detailform,"@invoicedetail"); %>
+<input type=hidden id=invoicedetail_invoice_id name=invoicedetail[invoice_id] value=<%= @invoice.id%>  >
+    <%= @detailform.renderHiddenFields(false) %>
+<table>
+	<tr>
+		<td>Product</td>
+		<td>Description</td>
+		<td>Price</td>
+		<td>Qty</td>
+		<td>Discrate</td>
+		<td>Discamt</td>
+	</tr>
+	<tr>
+		<td><%= @detailform["product_id"]; %></td>
+		<td><%= @detailform["description"]; %></td>
+		<td><%= @detailform["price"]; %></td>
+		<td><%= @detailform["qty"]; %></td>
+		<td><%= @detailform["discrate"]; %></td>
+		<td><%= @detailform["discamt"]; %></td>
+	</tr>
+	<tr>
+	  <td>Barcode: <%= @detailform["barcode"]; %></td>
+	</tr>
+</table>
+<input type=button name=submit value=Save onclick='saveinvoicedetail' >
+<%
+  #if(count($products))foreach($products as product)
+    #echo '<a onclick="changeText(' + product.id + ')" >'.product.name + '</a>';
+%>
+</form>
+<br>
 
+<input type=button value=Refresh onclick='viewinvoiceitemtable' >
+<div id=invoiceitemtable>
+<table border=1>
+  <tr>
+    <td>Barcode</td>
+    <td>Product</td>
+    <td>Description</td>
+    <td>Qty</td>
+    <td>Unit Price</td>
+    <td>Total</td>
+  </tr>
+  <% @invoice.details.each do |detail|%>
+  <tr>
+    <td><%= detail.barcode %></td>
+    <td><%= link_to(detail.product,"product/view?id=" + detail.productId) %></td>
+    <td><%= detail.description %></td>
+    <td><%= detail.qty %></td>
+    <td><%= detail.price %></td>
+    <td><%= detail.total %></td>
+    <td><%= link_to("Price List",product_type_path(detail.product.producttype)) %></td>
+    <td><%= link_to("Edit",edit_invoice_detail_path(detail)) %></td>
+    <td>
+<%= link_to( 'Delete', invoice_detail_path(detail), method: delete, 'confirm' => 'Are you sure?') %>
 
+    </td>
+    <td><%= link_to("Edit Product","product/edit?id=" + detail.productId) %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+<script type="text/javascript">
+function changeText(id)
+{
+var x=document.elementById("mySelect");
+x.value=id;
+}
+</script>
+<!--
+x.selectedIndex=id;
+-->
 
-
-<p>
-  <b>Customer:</b>
-  <%= @invoice.customer_id %>
-</p>
-
-<p>
-  <b>Customer name:</b>
-  <%= @invoice.customer_name %>
-</p>
-
-<p>
-  <b>Invno:</b>
-  <%= @invoice.invno %>
-</p>
-
-<p>
-  <b>Ponumber:</b>
-  <%= @invoice.ponumber %>
-</p>
-
-<p>
-  <b>Payonly:</b>
-  <%= @invoice.payonly %>
-</p>
-
-<p>
-  <b>Total:</b>
-  <%= @invoice.total %>
-</p>
-
-<p>
-  <b>Cheque:</b>
-  <%= @invoice.cheque %>
-</p>
-
-<p>
-  <b>Chequedate:</b>
-  <%= @invoice.chequedate %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @invoice.date %>
-</p>
-
-<p>
-  <b>Duedate:</b>
-  <%= @invoice.duedate %>
-</p>
-
-<p>
-  <b>Datepaid:</b>
-  <%= @invoice.datepaid %>
-</p>
-
-<p>
-  <b>Terms:</b>
-  <%= @invoice.terms_id %>
-</p>
-
-<p>
-  <b>Salesman:</b>
-  <%= @invoice.salesman_id %>
-</p>
-
-<p>
-  <b>Technician:</b>
-  <%= @invoice.technician_id %>
-</p>
-
-<p>
-  <b>Template:</b>
-  <%= @invoice.template_id %>
-</p>
-
-<p>
-  <b>Cash:</b>
-  <%= @invoice.cash %>
-</p>
-
-<p>
-  <b>Chequeamt:</b>
-  <%= @invoice.chequeamt %>
-</p>
-
-<p>
-  <b>Credit:</b>
-  <%= @invoice.credit %>
-</p>
-
-<p>
-  <b>Discrate:</b>
-  <%= @invoice.discrate %>
-</p>
-
-<p>
-  <b>Discamt:</b>
-  <%= @invoice.discamt %>
-</p>
-
-<p>
-  <b>Saletype:</b>
-  <%= @invoice.saletype %>
-</p>
-
-<p>
-  <b>Dsrdeduction:</b>
-  <%= @invoice.dsrdeduction %>
-</p>
-
-<p>
-  <b>Balance:</b>
-  <%= @invoice.balance %>
-</p>
-
-<p>
-  <b>Chequedata:</b>
-  <%= @invoice.chequedata %>
-</p>
-
-<p>
-  <b>Checkcleardate:</b>
-  <%= @invoice.checkcleardate %>
-</p>
-
-<p>
-  <b>Checkcollectevents:</b>
-  <%= @invoice.checkcollectevents %>
-</p>
-
-
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
