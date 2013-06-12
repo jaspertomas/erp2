@@ -2,6 +2,7 @@ class InvoiceDetailsController < ApplicationController
   # GET /invoice_details
   # GET /invoice_details.json
   def index
+    return redirect_to static_pages_invalidurlerror_path
     @invoice_details = InvoiceDetail.all
 
     respond_to do |format|

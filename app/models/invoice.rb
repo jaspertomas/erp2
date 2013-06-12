@@ -52,5 +52,86 @@ class Invoice < ActiveRecord::Base
   has_many :details, :class_name => "InvoiceDetail", :foreign_key => 'invoice_id'
   
   
+  def gencustomer
+    if customer_name!=nil && customer_name!="" && customer_id==nil
+      customer=Customer.find_by_name(customer_name)
+      customer=Customer.create(name: customer_name) if customer==nil
+      update_attributes(customer_id:customer.id,customer_name:"")
+    end
+  end
+  
+
+  def commission(employee)
+    # product.isservice values: 
+     #0 = commission to salesman, 
+     #1 = commission to technician, 
+     #2: commission to both (panel, but technician commission 3%), 
+     #3: commission to none      
+    commission=0
+    commissionrate=employee.commission/1000
+
+    if employee.is_technician==1
+      self.details.each do |detail|
+        #if item is service (is_service=1), add to commission
+        isservice=detail.product.is_service;
+        commission += detail.total if(isservice==1 || isservice==2)
+      end
+    elsif employee.is_technician==0
+        self.details.each do |detail|
+          #if item is not service (is_service=0), add to commission
+          isservice=detail.product.is_service;
+          commission+=detail.total if(isservice==0 || isservice==2)
+        end
+    end
+    commission
+  end
+  def chequepayments
+    Event.find_by_sql('select * from events where type=="ChequeCollect" and parent_class == "Invoice" and parent_id==#{self.id} ')
+  end
+
+#
+#    function getCommissionTotal($employee)
+#    {
+#      $commission=0;
+#      $commissionrate=$employee->getCommission()/1000;
+#  
+#      //if employee is technician
+#      if($employee->getIsTechnician()==1)
+#      {
+#        //foreach item
+#        foreach($this->getInvoicedetail() as $detail)
+#        {
+#          //if item is service (is_service=1), add to commission
+#          $isservice=$detail->getProduct()->getIsService();
+#           if($isservice==1)$commission+=$detail->getTotal()*$commissionrate;
+#           else if($isservice==2)$commission+=$detail->getTotal()*0.03; //fixed commission rate for control panels
+#        }
+#      }
+#      //else if employee is salesman
+#      elseif($employee->getIsTechnician()==0)
+#      {
+#        //foreach item
+#        foreach($this->getInvoicedetail() as $detail)
+#        {
+#          //if item is not service (is_service=0), add to commission
+#          $isservice=$detail->getProduct()->getIsService();
+#          if($isservice==0 or $isservice==2)$commission+=$detail->getTotal()*$commissionrate;
+#       }
+#      }
+#      return $commission;
+#    }
+#    function getUpdateChequedata()
+#    {
+#      $cheques=$this->getChequepayments();
+#      $chequedata=array();
+#      if($this->getCheque())
+#        $chequedata[]=$this->getCheque()." (P".$this->getChequeamt()." ".$this->getChequedate().")";
+#      
+#      foreach($cheques as $cheque)
+#      {
+#        $chequedata[]=$cheque->getDetail1()." (P".$cheque->getAmount()." ".$cheque->getDetail2().") ";
+#      }
+#      $this->setChequedata(implode(", ",$chequedata));
+#    }
   
 end

@@ -6,5 +6,6 @@ class CreateSettings < ActiveRecord::Migration
 
       t.timestamps
     end
+    Setting.create!(:name => 'default_salesman_id', :value => '2')  
   end
 end

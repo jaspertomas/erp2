@@ -21,7 +21,7 @@
           <td>
           <%if @invoice.customer%>
           	<%= link_to @invoice.customer.name ,edit_customer_path(@invoice.customer) ,target:"customer_edit"%>
-          	<%= " ("+@invoice.customer.tin_no+")"  %>
+          	<%= @invoice.customer ? " ("+@invoice.customer.tin_no.to_s+")" : "" %>
           <%end%>
           </td>
         </tr>
