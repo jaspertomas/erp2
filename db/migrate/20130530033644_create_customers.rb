@@ -20,5 +20,6 @@ class CreateCustomers < ActiveRecord::Migration
 
       t.timestamps
     end
+    Customer.create!(name: '(Anonymous)')
   end
 end

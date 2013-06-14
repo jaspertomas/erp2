@@ -53,10 +53,19 @@ class Invoice < ActiveRecord::Base
   
   
   def gencustomer
-    if customer_name!=nil && customer_name!="" && customer_id==nil
-      customer=Customer.find_by_name(customer_name)
-      customer=Customer.create(name: customer_name) if customer==nil
+    #no customer selected by combo box
+    if customer_id=="" || customer_id==nil
+      #no customer name given
+      if customer_name=="" 
+        customer=Customer.find_by_name("(Anonymous)")      
+      else
+        customer=Customer.find_by_name(customer_name)
+        customer=Customer.create(name: customer_name) if customer==nil
+      end
       update_attributes(customer_id:customer.id,customer_name:"")
+    #customer selected by combo box
+    else
+      update_attributes(customer_name:"")
     end
   end
   

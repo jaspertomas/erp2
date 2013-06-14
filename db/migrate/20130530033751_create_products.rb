@@ -22,5 +22,6 @@ class CreateProducts < ActiveRecord::Migration
 
       t.timestamps
     end
+    Product.create!(name: 'Something')
   end
 end

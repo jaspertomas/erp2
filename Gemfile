@@ -9,8 +9,8 @@ group :development do
 end
 
 group :development, :test do 
-	#gem 'sqlite3', '1.3.5'
-	gem 'mysql2'
+	gem 'sqlite3', '1.3.5'
+	#gem 'mysql2'
 	#gem 'activeadmin'
 	# gem 'activerecord-mysql2-adapter'	
 	gem 'rspec-rails', '2.9.0'
