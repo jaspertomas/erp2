@@ -42,7 +42,7 @@ class Invoice < ActiveRecord::Base
   validates_date :date
 #  validates_date :duedate
 #  validates_date :datepaid
-  validates :invno, :presence => true
+  validates :invno, :presence => true, :uniqueness => true
   
   belongs_to :customer, :class_name => "Customer", :foreign_key => 'customer_id'
   belongs_to :salesman, :class_name => "Employee", :foreign_key => 'salesman_id'
@@ -95,25 +95,25 @@ class Invoice < ActiveRecord::Base
 #      $commission=0;
 #      $commissionrate=$employee->getCommission()/1000;
 #  
-#      //if employee is technician
+#      #if employee is technician
 #      if($employee->getIsTechnician()==1)
 #      {
-#        //foreach item
+#        #foreach item
 #        foreach($this->getInvoicedetail() as $detail)
 #        {
-#          //if item is service (is_service=1), add to commission
+#          #if item is service (is_service=1), add to commission
 #          $isservice=$detail->getProduct()->getIsService();
 #           if($isservice==1)$commission+=$detail->getTotal()*$commissionrate;
-#           else if($isservice==2)$commission+=$detail->getTotal()*0.03; //fixed commission rate for control panels
+#           else if($isservice==2)$commission+=$detail->getTotal()*0.03; #fixed commission rate for control panels
 #        }
 #      }
-#      //else if employee is salesman
+#      #else if employee is salesman
 #      elseif($employee->getIsTechnician()==0)
 #      {
-#        //foreach item
+#        #foreach item
 #        foreach($this->getInvoicedetail() as $detail)
 #        {
-#          //if item is not service (is_service=0), add to commission
+#          #if item is not service (is_service=0), add to commission
 #          $isservice=$detail->getProduct()->getIsService();
 #          if($isservice==0 or $isservice==2)$commission+=$detail->getTotal()*$commissionrate;
 #       }
@@ -133,5 +133,73 @@ class Invoice < ActiveRecord::Base
 #      }
 #      $this->setChequedata(implode(", ",$chequedata));
 #    }
-  
+  def calc
+    
+
+    #initialize variables
+
+    _total=0
+    description=""
+    details.each { |detail| _total+=detail.total  }
+    self.total=_total-self.discamt.to_i
+
+      
+      case self.saletype
+      when "Cash"    
+        self.cash=self.total
+        self.chequeamt=0
+        self.credit=0
+        description="Cash Sale"
+      when "Cheque"    
+        self.cash=0
+        self.chequeamt=self.total
+        self.credit=0
+        description="Check Sale"
+      when "Account"    
+        self.cash=0
+        self.chequeamt=0
+        self.credit=self.total
+        description="Credit Sale"
+      else
+        description="Mixed Sale"
+        self.cash=self.total-self.chequeamt-self.credit
+      end
+      
+#      #ACCOUNTING
+#      self.salesAccountEntry(self.total,description);
+#
+#      #if it exists, and >0, update
+#      #if it doesn't exist, and >0, create
+#      #if it exists, and 0, delete
+#      #if it doesn't exist, and 0, do nothing
+#      if(self.cash!=0)
+#        self.setCashOnHandAccountEntry(self.cash,description);
+#      elsif(self.cashOnHandAccountEntry)
+#        self.cashOnHandAccountEntry.delete;
+#      end
+#
+#      if(self.credit!=0)
+#        self.setReceivablesAccountEntry(self.credit,description);
+#      elsif(self.getReceivablesAccountEntry)
+#        self.getReceivablesAccountEntry.delete;
+#      end
+#        
+#      if(self.chequeamt!=0)
+#        self.setInChecksAccountEntry(self.chequeamt,description);
+#      else if(self.getInChecksAccountEntry)
+#        self.getInChecksAccountEntry.delete;
+#      end
+#
+#      #adjust balance according to payables acctentries
+#      _balance=self.receivablesTotal;
+#
+#      self.balance(_balance);
+#      if(self.status=="Cancelled");
+#      else if(self.total>0 and _balance==0)
+#        self.status("Paid");
+#      else
+#        self.status("Pending");
+#      end
+
+  end
 end

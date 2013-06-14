@@ -50,6 +50,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
+        @invoice.calc
         @invoice.gencustomer
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render json: @invoice, status: :created, location: @invoice }
@@ -67,6 +68,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.update_attributes(params[:invoice])
+        @invoice.calc
         @invoice.gencustomer
         format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
         format.json { head :no_content }
