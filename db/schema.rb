@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602121905) do
+ActiveRecord::Schema.define(:version => 20130618081535) do
 
   create_table "account_categories", :force => true do |t|
     t.string   "name"
@@ -58,6 +58,17 @@ ActiveRecord::Schema.define(:version => 20130602121905) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "cheque_payments", :force => true do |t|
+    t.integer  "payment_id"
+    t.string   "type",       :limit => 10
+    t.decimal  "amount"
+    t.date     "chequedate"
+    t.string   "status",     :limit => 20
+    t.date     "cleardate"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "customers", :force => true do |t|
@@ -121,6 +132,15 @@ ActiveRecord::Schema.define(:version => 20130602121905) do
     t.decimal  "total"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "invoice_payments", :force => true do |t|
+    t.integer  "invoice_id"
+    t.string   "type",       :limit => 10
+    t.decimal  "amount"
+    t.date     "date"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "invoice_templates", :force => true do |t|
@@ -245,6 +265,15 @@ ActiveRecord::Schema.define(:version => 20130602121905) do
     t.boolean  "is_cancelled"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "purchase_payments", :force => true do |t|
+    t.integer  "purchase_id"
+    t.string   "type",        :limit => 10
+    t.decimal  "amount"
+    t.date     "date"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "purchase_templates", :force => true do |t|

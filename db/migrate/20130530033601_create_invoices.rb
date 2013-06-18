@@ -2,9 +2,9 @@ class CreateInvoices < ActiveRecord::Migration
   def change
     create_table :invoices do |t|
       t.integer :customer_id
-      t.string :customer_name
-      t.string :invno
-      t.string :ponumber
+      t.string :customer_name, :limit => 100
+      t.string :invno, :limit => 20
+      t.string :ponumber, :limit => 20
       t.decimal :payonly
       t.decimal :total
       t.string :cheque
