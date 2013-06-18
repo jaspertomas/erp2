@@ -56,7 +56,7 @@ class Invoice < ActiveRecord::Base
     #no customer selected by combo box
     if customer_id=="" || customer_id==nil
       #no customer name given
-      if customer_name=="" 
+      if customer_name=="" || customer_name==nil
         customer=Customer.find_by_name("(Anonymous)")      
       else
         customer=Customer.find_by_name(customer_name)
