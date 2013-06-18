@@ -1,0 +1,29 @@
+<h1>Listing purchase_payments</h1>
+
+<table>
+  <tr>
+    <th>Purchase</th>
+    <th>Type</th>
+    <th>Amount</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchase_payments.each do |purchase_payment| %>
+  <tr>
+    <td><%= purchase_payment.purchase_id %></td>
+    <td><%= purchase_payment.type %></td>
+    <td><%= purchase_payment.amount %></td>
+    <td><%= purchase_payment.date %></td>
+    <td><%= link_to 'Show', purchase_payment %></td>
+    <td><%= link_to 'Edit', edit_purchase_payment_path(purchase_payment) %></td>
+    <td><%= link_to 'Destroy', purchase_payment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase payment', new_purchase_payment_path %>

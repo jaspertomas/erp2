@@ -1,7 +1,7 @@
 class CreateInvoiceDetails < ActiveRecord::Migration
   def change
     create_table :invoice_details do |t|
-      t.string :barcode
+      t.string :barcode, :limit => 30
       t.integer :invoice_id
       t.integer :product_id
       t.string :description

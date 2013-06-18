@@ -37,5 +37,6 @@ class Purchase < ActiveRecord::Base
   validates_date :date
   validates_date :duedate
   validates_date :datereceived
+  has_many :payments, :class_name => "PurchasePayment", :foreign_key => 'purchase_id'
   
 end

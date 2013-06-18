@@ -50,7 +50,8 @@ class Invoice < ActiveRecord::Base
   belongs_to :template, :class_name => "InvoiceTemplate", :foreign_key => 'template_id'
   belongs_to :terms, :class_name => "Term", :foreign_key => 'terms_id'
   has_many :details, :class_name => "InvoiceDetail", :foreign_key => 'invoice_id'
-  
+  has_many :payments, :class_name => "InvoicePayment", :foreign_key => 'invoice_id'
+    
   
   def gencustomer
     #no customer selected by combo box

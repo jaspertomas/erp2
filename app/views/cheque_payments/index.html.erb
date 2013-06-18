@@ -1,0 +1,33 @@
+<h1>Listing cheque_payments</h1>
+
+<table>
+  <tr>
+    <th>Payment</th>
+    <th>Type</th>
+    <th>Amount</th>
+    <th>Chequedate</th>
+    <th>Status</th>
+    <th>Cleardate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cheque_payments.each do |cheque_payment| %>
+  <tr>
+    <td><%= cheque_payment.payment_id %></td>
+    <td><%= cheque_payment.type %></td>
+    <td><%= cheque_payment.amount %></td>
+    <td><%= cheque_payment.chequedate %></td>
+    <td><%= cheque_payment.status %></td>
+    <td><%= cheque_payment.cleardate %></td>
+    <td><%= link_to 'Show', cheque_payment %></td>
+    <td><%= link_to 'Edit', edit_cheque_payment_path(cheque_payment) %></td>
+    <td><%= link_to 'Destroy', cheque_payment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cheque payment', new_cheque_payment_path %>

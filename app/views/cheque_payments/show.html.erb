@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Payment:</b>
+  <%= @cheque_payment.payment_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @cheque_payment.type %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @cheque_payment.amount %>
+</p>
+
+<p>
+  <b>Chequedate:</b>
+  <%= @cheque_payment.chequedate %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @cheque_payment.status %>
+</p>
+
+<p>
+  <b>Cleardate:</b>
+  <%= @cheque_payment.cleardate %>
+</p>
+
+
+<%= link_to 'Edit', edit_cheque_payment_path(@cheque_payment) %> |
+<%= link_to 'Back', cheque_payments_path %>

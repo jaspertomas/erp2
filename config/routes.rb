@@ -1,5 +1,11 @@
 Erp2::Application.routes.draw do 
   
+  resources :cheque_payments
+
+  resources :purchase_payments
+
+  resources :invoice_payments
+
   resources :invoices
   post "invoices/dsr"
   resources :stocks

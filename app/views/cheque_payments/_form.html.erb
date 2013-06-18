@@ -1,0 +1,41 @@
+<%= form_for(@cheque_payment) do |f| %>
+  <% if @cheque_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cheque_payment.errors.count, "error") %> prohibited this cheque_payment from being saved:</h2>
+
+      <ul>
+      <% @cheque_payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :payment_id %><br />
+    <%= f.number_field :payment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :chequedate %><br />
+    <%= f.date_select :chequedate %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :cleardate %><br />
+    <%= f.date_select :cleardate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
